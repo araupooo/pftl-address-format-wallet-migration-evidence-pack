@@ -1,0 +1,11 @@
+Source: 0085a1ff885d6a446369cf73a4430f75af22be55
+File: src/libxrpl/protocol/tokens.cpp
+Lines: 140-144
+Permalink: https://github.com/postfiatorg/postfiatd/blob/0085a1ff885d6a446369cf73a4430f75af22be55/src/libxrpl/protocol/tokens.cpp#L140-L144
+Note: The XRPL Base58 alphabet (differs from Bitcoin's).
+
+namespace ripple {
+
+static constexpr char const* alphabetForward =
+    "rpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2bcdeCg65jkm8oFqi1tuvAxyz";
+

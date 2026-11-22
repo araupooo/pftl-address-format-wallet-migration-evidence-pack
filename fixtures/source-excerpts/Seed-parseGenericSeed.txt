@@ -1,0 +1,43 @@
+Source: 0085a1ff885d6a446369cf73a4430f75af22be55
+File: src/libxrpl/protocol/Seed.cpp
+Lines: 97-133
+Permalink: https://github.com/postfiatorg/postfiatd/blob/0085a1ff885d6a446369cf73a4430f75af22be55/src/libxrpl/protocol/Seed.cpp#L97-L133
+Note: parseGenericSeed: rejects anything that parses as an account/public/secret token, accepts 32-hex seeds and family seeds, RFC1751 words, and falls back to generateSeed(passphrase).
+
+parseGenericSeed(std::string const& str, bool rfc1751)
+{
+    if (str.empty())
+        return std::nullopt;
+
+    if (parseBase58<AccountID>(str) ||
+        parseBase58<PublicKey>(TokenType::NodePublic, str) ||
+        parseBase58<PublicKey>(TokenType::AccountPublic, str) ||
+        parseBase58<SecretKey>(TokenType::NodePrivate, str) ||
+        parseBase58<SecretKey>(TokenType::AccountSecret, str))
+    {
+        return std::nullopt;
+    }
+
+    {
+        uint128 seed;
+
+        if (seed.parseHex(str))
+            return Seed{Slice(seed.data(), seed.size())};
+    }
+
+    if (auto seed = parseBase58<Seed>(str))
+        return seed;
+
+    if (rfc1751)
+    {
+        std::string key;
+        if (RFC1751::getKeyFromEnglish(key, str) == 1)
+        {
+            Blob const blob(key.rbegin(), key.rend());
+            return Seed{uint128{blob}};
+        }
+    }
+
+    return generateSeed(str);
+}
+

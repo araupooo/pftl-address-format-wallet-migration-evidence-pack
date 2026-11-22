@@ -1,0 +1,17 @@
+Source: 0085a1ff885d6a446369cf73a4430f75af22be55
+File: src/libxrpl/protocol/Seed.cpp
+Lines: 135-145
+Permalink: https://github.com/postfiatorg/postfiatd/blob/0085a1ff885d6a446369cf73a4430f75af22be55/src/libxrpl/protocol/Seed.cpp#L135-L145
+Note: seedAs1751: reverse the 16 seed bytes, then RFC1751-encode.
+
+seedAs1751(Seed const& seed)
+{
+    std::string key;
+
+    std::reverse_copy(seed.data(), seed.data() + 16, std::back_inserter(key));
+
+    std::string encodedKey;
+    RFC1751::getEnglishFromKey(encodedKey, key);
+    return encodedKey;
+}
+

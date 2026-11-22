@@ -1,0 +1,48 @@
+Source: 0085a1ff885d6a446369cf73a4430f75af22be55
+File: src/libxrpl/crypto/RFC1751.cpp
+Lines: 463-504
+Permalink: https://github.com/postfiatorg/postfiatd/blob/0085a1ff885d6a446369cf73a4430f75af22be55/src/libxrpl/crypto/RFC1751.cpp#L463-L504
+Note: getKeyFromEnglish (12 words -> 128-bit key) and getEnglishFromKey (128-bit key -> 12 words, 6 per 64-bit half).
+
+RFC1751::getKeyFromEnglish(std::string& strKey, std::string const& strHuman)
+{
+    std::vector<std::string> vWords;
+    std::string strFirst, strSecond;
+    int rc = 0;
+
+    std::string strTrimmed(strHuman);
+
+    boost::algorithm::trim(strTrimmed);
+
+    boost::algorithm::split(
+        vWords,
+        strTrimmed,
+        boost::algorithm::is_space(),
+        boost::algorithm::token_compress_on);
+
+    rc = 12 == vWords.size() ? 1 : -1;
+
+    if (1 == rc)
+        rc = etob(strFirst, vWords | boost::adaptors::copied(0, 6));
+
+    if (1 == rc)
+        rc = etob(strSecond, vWords | boost::adaptors::copied(6, 12));
+
+    if (1 == rc)
+        strKey = strFirst + strSecond;
+
+    return rc;
+}
+
+/** Convert to human from a 128 bit key in big-endian format
+ */
+void
+RFC1751::getEnglishFromKey(std::string& strHuman, std::string const& strKey)
+{
+    std::string strFirst, strSecond;
+
+    btoe(strFirst, strKey.substr(0, 8));
+    btoe(strSecond, strKey.substr(8, 8));
+
+    strHuman = strFirst + " " + strSecond;
+}

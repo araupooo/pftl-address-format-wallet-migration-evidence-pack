@@ -1,0 +1,20 @@
+Source: 0085a1ff885d6a446369cf73a4430f75af22be55
+File: src/libxrpl/protocol/tokens.cpp
+Lines: 182-195
+Permalink: https://github.com/postfiatorg/postfiatd/blob/0085a1ff885d6a446369cf73a4430f75af22be55/src/libxrpl/protocol/tokens.cpp#L182-L195
+Note: Checksum: first 4 bytes of the double-SHA-256 digest (the comment says 'SHA256 digest' but the code calls digest2<sha256_hasher> — the code is authoritative; the reference implementation uses double-SHA-256).
+
+/** Calculate a 4-byte checksum of the data
+
+    The checksum is calculated as the first 4 bytes
+    of the SHA256 digest of the message. This is added
+    to the base58 encoding of identifiers to detect
+    user error in data entry.
+
+    @note This checksum algorithm is part of the client API
+*/
+static void
+checksum(void* out, void const* message, std::size_t size)
+{
+    auto const h = digest2<sha256_hasher>(message, size);
+    std::memcpy(out, h.data(), 4);

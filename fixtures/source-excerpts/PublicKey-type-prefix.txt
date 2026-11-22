@@ -1,0 +1,19 @@
+Source: 0085a1ff885d6a446369cf73a4430f75af22be55
+File: src/libxrpl/protocol/PublicKey.cpp
+Lines: 224-236
+Permalink: https://github.com/postfiatorg/postfiatd/blob/0085a1ff885d6a446369cf73a4430f75af22be55/src/libxrpl/protocol/PublicKey.cpp#L224-L236
+Note: publicKeyType: 0xED -> ed25519, 0x02/0x03 -> secp256k1 (33 bytes).
+
+publicKeyType(Slice const& slice)
+{
+    if (slice.size() == 33)
+    {
+        if (slice[0] == 0xED)
+            return KeyType::ed25519;
+
+        if (slice[0] == 0x02 || slice[0] == 0x03)
+            return KeyType::secp256k1;
+    }
+
+    return std::nullopt;
+}

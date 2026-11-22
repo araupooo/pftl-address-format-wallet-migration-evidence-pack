@@ -1,0 +1,12 @@
+Source: 0085a1ff885d6a446369cf73a4430f75af22be55
+File: src/libxrpl/crypto/RFC1751.cpp
+Lines: 40-45
+Permalink: https://github.com/postfiatorg/postfiatd/blob/0085a1ff885d6a446369cf73a4430f75af22be55/src/libxrpl/crypto/RFC1751.cpp#L40-L45
+Note: RFC1751 dictionary: 2048 words (first lines; the full list ships in fixtures/rfc1751-words.csv).
+
+//
+
+char const* RFC1751::s_dictionary[2048] = {
+    "A",    "ABE",  "ACE",  "ACT",  "AD",   "ADA",  "ADD",  "AGO",  "AID",
+    "AIM",  "AIR",  "ALL",  "ALP",  "AM",   "AMY",  "AN",   "ANA",  "AND",
+    "ANN",  "ANT",  "ANY",  "APE",  "APS",  "APT",  "ARC",  "ARE",  "ARK",

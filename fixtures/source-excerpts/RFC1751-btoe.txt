@@ -1,0 +1,36 @@
+Source: 0085a1ff885d6a446369cf73a4430f75af22be55
+File: src/libxrpl/crypto/RFC1751.cpp
+Lines: 301-330
+Permalink: https://github.com/postfiatorg/postfiatd/blob/0085a1ff885d6a446369cf73a4430f75af22be55/src/libxrpl/crypto/RFC1751.cpp#L301-L330
+Note: RFC1751::btoe: 8 bytes -> 6 words, with a 2-bit parity in a 9th byte.
+
+// Encode 8 bytes in 'c' as a string of English words.
+// Returns a pointer to a static buffer
+void
+RFC1751::btoe(std::string& strHuman, std::string const& strData)
+{
+    char caBuffer[9]; /* add in room for the parity 2 bits*/
+    int p, i;
+
+    memcpy(caBuffer, strData.c_str(), 8);
+
+    // compute parity: merely add groups of two bits.
+    for (p = 0, i = 0; i < 64; i += 2)
+        p += extract(caBuffer, i, 2);
+
+    caBuffer[8] = char(p) << 6;
+
+    strHuman = std::string() + s_dictionary[extract(caBuffer, 0, 11)] + " " +
+        s_dictionary[extract(caBuffer, 11, 11)] + " " +
+        s_dictionary[extract(caBuffer, 22, 11)] + " " +
+        s_dictionary[extract(caBuffer, 33, 11)] + " " +
+        s_dictionary[extract(caBuffer, 44, 11)] + " " +
+        s_dictionary[extract(caBuffer, 55, 11)];
+}
+
+void
+RFC1751::insert(char* s, int x, int start, int length)
+{
+    unsigned char cl;
+    unsigned char cc;
+    unsigned char cr;

@@ -1,0 +1,14 @@
+Source: 0085a1ff885d6a446369cf73a4430f75af22be55
+File: src/libxrpl/protocol/Seed.cpp
+Lines: 88-95
+Permalink: https://github.com/postfiatorg/postfiatd/blob/0085a1ff885d6a446369cf73a4430f75af22be55/src/libxrpl/protocol/Seed.cpp#L88-L95
+Note: parseBase58<Seed>: FamilySeed token, must decode to exactly 16 bytes.
+
+    auto const result = decodeBase58Token(s, TokenType::FamilySeed);
+    if (result.empty())
+        return std::nullopt;
+    if (result.size() != 16)
+        return std::nullopt;
+    return Seed(makeSlice(result));
+}
+

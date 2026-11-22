@@ -1,0 +1,33 @@
+Source: 0085a1ff885d6a446369cf73a4430f75af22be55
+File: src/xrpld/rpc/detail/RPCHelpers.cpp
+Lines: 44-70
+Permalink: https://github.com/postfiatorg/postfiatd/blob/0085a1ff885d6a446369cf73a4430f75af22be55/src/xrpld/rpc/detail/RPCHelpers.cpp#L44-L70
+Note: accountFromStringStrict: an account-public token is accepted and mapped to its AccountID; otherwise the string must parse as an AccountID.
+
+accountFromStringStrict(std::string const& account)
+{
+    std::optional<AccountID> result;
+
+    auto const publicKey =
+        parseBase58<PublicKey>(TokenType::AccountPublic, account);
+
+    if (publicKey)
+        result = calcAccountID(*publicKey);
+    else
+        result = parseBase58<AccountID>(account);
+
+    return result;
+}
+
+error_code_i
+accountFromStringWithCode(
+    AccountID& result,
+    std::string const& strIdent,
+    bool bStrict)
+{
+    if (auto accountID = accountFromStringStrict(strIdent))
+    {
+        result = *accountID;
+        return rpcSUCCESS;
+    }
+

@@ -1,0 +1,27 @@
+Source: 0085a1ff885d6a446369cf73a4430f75af22be55
+File: src/libxrpl/protocol/Seed.cpp
+Lines: 66-86
+Permalink: https://github.com/postfiatorg/postfiatd/blob/0085a1ff885d6a446369cf73a4430f75af22be55/src/libxrpl/protocol/Seed.cpp#L66-L86
+Note: randomSeed (16 CSPRNG bytes) and generateSeed (SHA-512-Half of the passphrase, first 16 bytes).
+
+randomSeed()
+{
+    std::array<std::uint8_t, 16> buffer;
+    beast::rngfill(buffer.data(), buffer.size(), crypto_prng());
+    Seed seed(makeSlice(buffer));
+    secure_erase(buffer.data(), buffer.size());
+    return seed;
+}
+
+Seed
+generateSeed(std::string const& passPhrase)
+{
+    sha512_half_hasher_s h;
+    h(passPhrase.data(), passPhrase.size());
+    auto const digest = sha512_half_hasher::result_type(h);
+    return Seed({digest.data(), 16});
+}
+
+template <>
+std::optional<Seed>
+parseBase58(std::string const& s)

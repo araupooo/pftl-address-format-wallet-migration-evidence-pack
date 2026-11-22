@@ -1,0 +1,29 @@
+Source: 0085a1ff885d6a446369cf73a4430f75af22be55
+File: src/libxrpl/protocol/AccountID.cpp
+Lines: 168-190
+Permalink: https://github.com/postfiatorg/postfiatd/blob/0085a1ff885d6a446369cf73a4430f75af22be55/src/libxrpl/protocol/AccountID.cpp#L168-L190
+Note: calcAccountID: RIPEMD-160(SHA-256(public key)). xrpAccount() is the all-zero AccountID; noAccount() is AccountID 1.
+
+calcAccountID(PublicKey const& pk)
+{
+    static_assert(AccountID::bytes == sizeof(ripesha_hasher::result_type));
+
+    ripesha_hasher rsh;
+    rsh(pk.data(), pk.size());
+    return AccountID{static_cast<ripesha_hasher::result_type>(rsh)};
+}
+
+AccountID const&
+xrpAccount()
+{
+    static AccountID const account(beast::zero);
+    return account;
+}
+
+AccountID const&
+noAccount()
+{
+    static AccountID const account(1);
+    return account;
+}
+

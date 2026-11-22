@@ -1,0 +1,24 @@
+Source: 0085a1ff885d6a446369cf73a4430f75af22be55
+File: src/libxrpl/protocol/AccountID.cpp
+Lines: 114-131
+Permalink: https://github.com/postfiatorg/postfiatd/blob/0085a1ff885d6a446369cf73a4430f75af22be55/src/libxrpl/protocol/AccountID.cpp#L114-L131
+Note: toBase58 / parseBase58<AccountID>: classic address is a Base58Check AccountID token; parse requires exactly 20 bytes.
+
+toBase58(AccountID const& v)
+{
+    if (accountIdCache)
+        return accountIdCache->toBase58(v);
+
+    return encodeBase58Token(TokenType::AccountID, v.data(), v.size());
+}
+
+template <>
+std::optional<AccountID>
+parseBase58(std::string const& s)
+{
+    auto const result = decodeBase58Token(s, TokenType::AccountID);
+    if (result.size() != AccountID::bytes)
+        return std::nullopt;
+    return AccountID{result};
+}
+

@@ -1,0 +1,10 @@
+Source: 0085a1ff885d6a446369cf73a4430f75af22be55
+File: include/xrpl/protocol/KeyType.h
+Lines: 28-31
+Permalink: https://github.com/postfiatorg/postfiatd/blob/0085a1ff885d6a446369cf73a4430f75af22be55/include/xrpl/protocol/KeyType.h#L28-L31
+Note: KeyType has exactly two values: secp256k1 = 0, ed25519 = 1.
+
+enum class KeyType {
+    secp256k1 = 0,
+    ed25519 = 1,
+};

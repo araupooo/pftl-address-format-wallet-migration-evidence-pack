@@ -1,0 +1,14 @@
+Source: 0085a1ff885d6a446369cf73a4430f75af22be55
+File: src/libxrpl/protocol/STObject.cpp
+Lines: 418-425
+Permalink: https://github.com/postfiatorg/postfiatd/blob/0085a1ff885d6a446369cf73a4430f75af22be55/src/libxrpl/protocol/STObject.cpp#L418-L425
+Note: getSigningHash: SHA-512-Half of (4-byte prefix || serialized object, signing fields omitted).
+
+STObject::getSigningHash(HashPrefix prefix) const
+{
+    Serializer s;
+    s.add32(prefix);
+    add(s, omitSigningFields);
+    return s.getSHA512Half();
+}
+

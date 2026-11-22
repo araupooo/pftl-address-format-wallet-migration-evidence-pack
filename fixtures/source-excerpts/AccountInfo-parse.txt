@@ -1,0 +1,16 @@
+Source: 0085a1ff885d6a446369cf73a4430f75af22be55
+File: src/xrpld/rpc/handlers/AccountInfo.cpp
+Lines: 74-83
+Permalink: https://github.com/postfiatorg/postfiatd/blob/0085a1ff885d6a446369cf73a4430f75af22be55/src/xrpld/rpc/handlers/AccountInfo.cpp#L74-L83
+Note: doAccountInfo parses the account with parseBase58<AccountID>; anything that does not parse (including X-addresses) is actMalformed.
+
+        return result;
+
+    // Get info on account.
+    auto id = parseBase58<AccountID>(strIdent);
+    if (!id)
+    {
+        RPC::inject_error(rpcACT_MALFORMED, result);
+        return result;
+    }
+    auto const accountID{std::move(id.value())};

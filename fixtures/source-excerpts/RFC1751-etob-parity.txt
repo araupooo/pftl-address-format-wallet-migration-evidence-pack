@@ -1,0 +1,58 @@
+Source: 0085a1ff885d6a446369cf73a4430f75af22be55
+File: src/libxrpl/crypto/RFC1751.cpp
+Lines: 409-460
+Permalink: https://github.com/postfiatorg/postfiatd/blob/0085a1ff885d6a446369cf73a4430f75af22be55/src/libxrpl/crypto/RFC1751.cpp#L409-L460
+Note: RFC1751::etob: 6 words -> 8 bytes; returns -2 when the parity is wrong.
+
+// Convert 6 words to binary.
+//
+// Returns 1 OK - all good words and parity is OK
+//         0 word not in data base
+//        -1 badly formed in put ie > 4 char word
+//        -2 words OK but parity is wrong
+int
+RFC1751::etob(std::string& strData, std::vector<std::string> vsHuman)
+{
+    if (6 != vsHuman.size())
+        return -1;
+
+    int i, p = 0;
+    char b[9] = {0};
+
+    for (auto& strWord : vsHuman)
+    {
+        int l = strWord.length();
+
+        if (l > 4 || l < 1)
+            return -1;
+
+        standard(strWord);
+
+        auto v = wsrch(strWord, l < 4 ? 0 : 571, l < 4 ? 570 : 2048);
+
+        if (v < 0)
+            return 0;
+
+        insert(b, v, p, 11);
+        p += 11;
+    }
+
+    /* now check the parity of what we got */
+    for (p = 0, i = 0; i < 64; i += 2)
+        p += extract(b, i, 2);
+
+    if ((p & 3) != extract(b, 64, 2))
+        return -2;
+
+    strData.assign(b, 8);
+
+    return 1;
+}
+
+/** Convert words separated by spaces into a 128 bit key in big-endian format.
+
+    @return
+         1 if succeeded
+         0 if word not in dictionary
+        -1 if badly formed string
+        -2 if words are okay but parity is wrong.

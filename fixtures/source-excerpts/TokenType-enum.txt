@@ -1,0 +1,15 @@
+Source: 0085a1ff885d6a446369cf73a4430f75af22be55
+File: include/xrpl/protocol/tokens.h
+Lines: 38-46
+Permalink: https://github.com/postfiatorg/postfiatd/blob/0085a1ff885d6a446369cf73a4430f75af22be55/include/xrpl/protocol/tokens.h#L38-L46
+Note: Token-type version bytes for every Base58Check token in the ledger.
+
+enum class TokenType : std::uint8_t {
+    None = 1,  // unused
+    NodePublic = 28,
+    NodePrivate = 32,
+    AccountID = 0,
+    AccountPublic = 35,
+    AccountSecret = 34,
+    FamilyGenerator = 41,  // unused
+    FamilySeed = 33

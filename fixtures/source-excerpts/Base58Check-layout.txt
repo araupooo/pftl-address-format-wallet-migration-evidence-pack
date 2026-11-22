@@ -1,0 +1,24 @@
+Source: 0085a1ff885d6a446369cf73a4430f75af22be55
+File: src/libxrpl/protocol/tokens.cpp
+Lines: 325-342
+Permalink: https://github.com/postfiatorg/postfiatd/blob/0085a1ff885d6a446369cf73a4430f75af22be55/src/libxrpl/protocol/tokens.cpp#L325-L342
+Note: Token layout: <type><token><checksum>.
+
+encodeBase58Token(TokenType type, void const* token, std::size_t size)
+{
+    // expanded token includes type + 4 byte checksum
+    auto const expanded = 1 + size + 4;
+
+    // We need expanded + expanded * (log(256) / log(58)) which is
+    // bounded by expanded + expanded * (138 / 100 + 1) which works
+    // out to expanded * 3:
+    auto const bufsize = expanded * 3;
+
+    boost::container::small_vector<std::uint8_t, 1024> buf(bufsize);
+
+    // Lay the data out as
+    //      <type><token><checksum>
+    buf[0] = safe_cast<std::underlying_type_t<TokenType>>(type);
+    if (size)
+        std::memcpy(buf.data() + 1, token, size);
+    checksum(buf.data() + 1 + size, buf.data(), 1 + size);
