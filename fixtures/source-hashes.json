@@ -1,0 +1,56 @@
+{
+ "absence_checks": {
+  "XAddress": 0,
+  "mnemonic_bip39": 0,
+  "note": "No X-address support exists in the pinned node code (src/ + include/, excluding tests). X-addresses are client-side only (ripple-address-codec).",
+  "toXAddress": 0,
+  "xAddress": 0
+ },
+ "files": {
+  "include/xrpl/protocol/KeyType.h": {
+   "blob_sha1": "810e3e6fdf49a2cb73449b3a387ad5ea525c2bba",
+   "excerpt_lines": "28-31"
+  },
+  "include/xrpl/protocol/tokens.h": {
+   "blob_sha1": "f0c4e79d43a18c346029268413ca28c7274a9f69",
+   "excerpt_lines": "38-46"
+  },
+  "src/libxrpl/crypto/RFC1751.cpp": {
+   "blob_sha1": "48bd8dc0f882fc3ed38074ef63be22c6cfb345ca",
+   "excerpt_lines": "463-504"
+  },
+  "src/libxrpl/protocol/AccountID.cpp": {
+   "blob_sha1": "109ac3d02838373917fe9f5e4d9440b4bef2ebec",
+   "excerpt_lines": "168-190"
+  },
+  "src/libxrpl/protocol/PublicKey.cpp": {
+   "blob_sha1": "54b50c80ef104b89a0dc7f357ca7d9a3e3edaab7",
+   "excerpt_lines": "224-236"
+  },
+  "src/libxrpl/protocol/STObject.cpp": {
+   "blob_sha1": "4b7aafdacb2573453a2014654587d6ace0267454",
+   "excerpt_lines": "418-425"
+  },
+  "src/libxrpl/protocol/SecretKey.cpp": {
+   "blob_sha1": "06b1061c1e872ec6dad0abcb015a6524e1a105ab",
+   "excerpt_lines": "258-307"
+  },
+  "src/libxrpl/protocol/Seed.cpp": {
+   "blob_sha1": "095c09e7c094061841475bebc35fc37a930d6042",
+   "excerpt_lines": "135-145"
+  },
+  "src/libxrpl/protocol/tokens.cpp": {
+   "blob_sha1": "52cffd7a5cbacd1e348015806c79dbbe2616976f",
+   "excerpt_lines": "325-342"
+  },
+  "src/xrpld/rpc/detail/RPCHelpers.cpp": {
+   "blob_sha1": "edb91611bec2b7b581511cc3e85b6087dd40941d",
+   "excerpt_lines": "44-70"
+  },
+  "src/xrpld/rpc/handlers/AccountInfo.cpp": {
+   "blob_sha1": "62d54499b24fe0b4aeac7f70872cc45098bf1f8f",
+   "excerpt_lines": "74-83"
+  }
+ },
+ "pinned_commit": "0085a1ff885d6a446369cf73a4430f75af22be55"
+}

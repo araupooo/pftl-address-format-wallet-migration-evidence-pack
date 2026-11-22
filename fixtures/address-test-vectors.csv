@@ -1,0 +1,11 @@
+format,value,derivation,note
+"classic-address","rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh","AccountID b5f762798a53d543a014caf8b297cff8f2f937e8","docs seed, secp256k1 ordinal 0"
+"classic-address","rGWrZyQqhTp9Xu7G5Pkayo7bXjH4k4QYpf","AccountID of Ed25519 public key edaac3f98bb94f451804ef5993c847daaa4e6154f455635659d88aa5c80f156303","docs seed, Ed25519"
+"classic-address","r4vhrMChCsaoFsBoCkRTRGUuc1njfr7bmA","AccountID f0633263b2e588395fcf15d406297e864f91aa35","PFTL genesis account (live)"
+"classic-address","rrrrrrrrrrrrrrrrrrrrrhoLvTp","AccountID 0000000000000000000000000000000000000000","all-zero AccountID"
+"classic-address","rrrrrrrrrrrrrrrrrrrrBZbvji","AccountID 0000000000000000000000000000000000000001","account-one (noAccount)"
+"x-address-mainnet-tag0","XVPcpSm47b1CZkf5AkKM9a84dQHe3mS14LVdcxAFurk93tF","classic rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh, tag 0","docs seed secp256k1 address, mainnet"
+"x-address-testnet-tag12345","TVK3SYvMLZR6rEtLDZh3saYHaqFSeMfyuiuZdqF49Mhpsws","classic rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh, tag 12345","docs seed secp256k1 address, testnet"
+"family-seed","snoPBrXtMeMyMHUVTgbuqAfg1SUTb","seed bytes dedce9ce67b451d852fd4e846fcde31c","public docs vector; also 'masterpassphrase' via generateSeed"
+"rfc1751-words","I IRE BOND BOW TRIO LAID SEAT GOAL HEN IBIS IBIS DARE","seed bytes dedce9ce67b451d852fd4e846fcde31c (reversed before encoding)","docs seed as 12 RFC1751 words"
+"account-public-token","aBQG8RQAzjs1eTKFEAQXr2gS4utcDiEC9wmi7pfUPTi27VCahwgw","public key 0330e7fc9d56bb25d6893ba3f317ae5bcf33b3291bd63db32654a313222f7fd020","docs seed secp256k1 public key token (version 0x23)"
