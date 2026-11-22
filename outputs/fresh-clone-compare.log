@@ -1,0 +1,30 @@
+PASS build version unchanged — 1.0.9
+PASS network id unchanged — 2025
+PASS validated ledger advanced (chain moved forward) — shipped 8281677 -> fresh 8281948
+PASS peers unchanged — 21
+PASS validation quorum unchanged — 17
+PASS account_info rpc-account_info-pftl-genesis outcome unchanged — success / None
+PASS account_info rpc-account_info-xrpl-genesis outcome unchanged — error / actNotFound
+PASS account_info rpc-account_info-account-one outcome unchanged — error / actNotFound
+PASS account_info rpc-account_info-zero-account outcome unchanged — error / actNotFound
+PASS account_info rpc-account_info-validator-master outcome unchanged — error / actNotFound
+PASS account_info rpc-account_info-docs-seed outcome unchanged — error / actNotFound
+PASS account_info rpc-account_info-malformed outcome unchanged — error / actMalformed
+PASS account_info rpc-account_info-xaddress outcome unchanged — error / actMalformed
+PASS genesis account unchanged — r4vhrMChCsaoFsBoCkRTRGUuc1njfr7bmA
+PASS genesis balance unchanged — 96999999999999880
+PASS validator list blob unchanged — blobs_v2 identical (sequence 30)
+PASS drill case IDs/titles identical — 25 cases
+PASS drill all pass (shipped) — 25/25
+PASS drill all pass (fresh) — 25/25
+PASS validator addresses unchanged — 25 addresses
+PASS genesis AccountID unchanged — f0633263b2e588395fcf15d406297e864f91aa35
+PASS ledger census has 0 X-address fields (both runs) — fresh ledger 8281948, 0 txs
+PASS collision model identical — birthday + checksum numbers
+PASS address inventory totals identical — {'address_formats': 9, 'key_formats': 2, 'seed_formats': 4}
+PASS address inventory formats identical — 9 formats
+PASS findings counts identical — 12 findings, 32 claims, 14 risks
+PASS verdict unchanged — same verdict string
+PASS manifest counts identical
+PASS cross-check all pass (fresh) — 24/24
+CHECKS PASSED: 29/29

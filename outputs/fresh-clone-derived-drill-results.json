@@ -1,0 +1,195 @@
+{
+ "cases": [
+  {
+   "detail": "pub 0330e7fc9d56bb25\u2026 address rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh",
+   "id": "D-01",
+   "pass": true,
+   "title": "docs seed secp256k1 ordinal 0 derivation"
+  },
+  {
+   "detail": "pub edaac3f98bb94f45\u2026 address rGWrZyQqhTp9Xu7G5Pkayo7bXjH4k4QYpf",
+   "id": "D-02",
+   "pass": true,
+   "title": "docs seed Ed25519 derivation"
+  },
+  {
+   "detail": "generateSeed is SHA-512-Half(passphrase)[:16]; matches the public docs seed exactly",
+   "id": "D-03",
+   "pass": true,
+   "title": "passphrase 'masterpassphrase' -> docs seed"
+  },
+  {
+   "detail": "main XVPcpSm47b1CZkf5AkKM9a84dQHe3mS14LVdcxAFurk93tF test TVK3SYvMLZR6rEtLDZh3saYHaqFSeMfyuiuZdqF49Mhpsws",
+   "id": "D-04",
+   "pass": true,
+   "title": "X-address known vectors (main tag 0, test tag 12345)"
+  },
+  {
+   "detail": "words: I IRE BOND BOW TRIO LAID SEAT GOAL HEN IBIS IBIS DARE",
+   "id": "D-05",
+   "pass": true,
+   "title": "RFC1751 12-word seed encode/decode + parity detection"
+  },
+  {
+   "detail": "LAB address rD2QTcHfftGwoUYHj9T8RvmQWjBkkuwED6 (seed fingerprint 70250b187a83bdf8)",
+   "id": "D-06",
+   "pass": true,
+   "title": "lab seed 1 ed25519 derivation -> valid classic address"
+  },
+  {
+   "detail": "LAB address rheEApA9c35dEiyGDuoEBkWrNs2UVPKLcY (seed fingerprint 70250b187a83bdf8)",
+   "id": "D-06",
+   "pass": true,
+   "title": "lab seed 1 secp256k1 derivation -> valid classic address"
+  },
+  {
+   "detail": "ordinal 0 rheEApA9c35dEiyGDuoEBkWrNs2UVPKLcY ordinal 1 r9TTYbAJLba6tvY7oxR59Vb4Xk7ntjGjhX",
+   "id": "D-07",
+   "pass": true,
+   "title": "lab seed 1 secp256k1 ordinal 0 vs 1 differ"
+  },
+  {
+   "detail": "ed25519 rD2QTcHfftGwoUYHj9T8RvmQWjBkkuwED6 secp256k1 rheEApA9c35dEiyGDuoEBkWrNs2UVPKLcY (same seed, two accounts)",
+   "id": "D-08",
+   "pass": true,
+   "title": "lab seed 1: same seed, Ed25519 vs secp256k1 give different addresses"
+  },
+  {
+   "detail": "LAB address rPKKojf8Ncjf8Qs4NmdUBkwJZUKmo2Ny7H (seed fingerprint 432e7f4c6b0b3fc5)",
+   "id": "D-06",
+   "pass": true,
+   "title": "lab seed 2 ed25519 derivation -> valid classic address"
+  },
+  {
+   "detail": "LAB address rUL3Uox1izees3o3yXceYrRUxnmRnjgsdj (seed fingerprint 432e7f4c6b0b3fc5)",
+   "id": "D-06",
+   "pass": true,
+   "title": "lab seed 2 secp256k1 derivation -> valid classic address"
+  },
+  {
+   "detail": "ordinal 0 rUL3Uox1izees3o3yXceYrRUxnmRnjgsdj ordinal 1 rhdEbdr2GijBLQrLRPBySyMGXqHUiMfpL1",
+   "id": "D-07",
+   "pass": true,
+   "title": "lab seed 2 secp256k1 ordinal 0 vs 1 differ"
+  },
+  {
+   "detail": "ed25519 rPKKojf8Ncjf8Qs4NmdUBkwJZUKmo2Ny7H secp256k1 rUL3Uox1izees3o3yXceYrRUxnmRnjgsdj (same seed, two accounts)",
+   "id": "D-08",
+   "pass": true,
+   "title": "lab seed 2: same seed, Ed25519 vs secp256k1 give different addresses"
+  },
+  {
+   "detail": "LAB address r9ryCxdt6kScDxTbQseif5DzigBGr3kGqt (seed fingerprint b3931b1b227a77e4)",
+   "id": "D-06",
+   "pass": true,
+   "title": "lab seed 3 ed25519 derivation -> valid classic address"
+  },
+  {
+   "detail": "LAB address rpYnGhdaH21U6zcuHj5qozfJEAEcXTHR8k (seed fingerprint b3931b1b227a77e4)",
+   "id": "D-06",
+   "pass": true,
+   "title": "lab seed 3 secp256k1 derivation -> valid classic address"
+  },
+  {
+   "detail": "ordinal 0 rpYnGhdaH21U6zcuHj5qozfJEAEcXTHR8k ordinal 1 rpqimDeWB1nNqWLoMXToovnAATGejfs1vB",
+   "id": "D-07",
+   "pass": true,
+   "title": "lab seed 3 secp256k1 ordinal 0 vs 1 differ"
+  },
+  {
+   "detail": "ed25519 r9ryCxdt6kScDxTbQseif5DzigBGr3kGqt secp256k1 rpYnGhdaH21U6zcuHj5qozfJEAEcXTHR8k (same seed, two accounts)",
+   "id": "D-08",
+   "pass": true,
+   "title": "lab seed 3: same seed, Ed25519 vs secp256k1 give different addresses"
+  },
+  {
+   "detail": "signature 64 bytes",
+   "id": "D-09",
+   "pass": true,
+   "title": "offline sign/verify ed25519 (+ tamper rejection)"
+  },
+  {
+   "detail": "signature 71 bytes",
+   "id": "D-09",
+   "pass": true,
+   "title": "offline sign/verify secp256k1 (+ tamper rejection)"
+  },
+  {
+   "detail": "bad checksum: rejected; wrong version byte: rejected; invalid base58 char: rejected; too short: rejected; empty string: rejected; X-address tag overflow: rejected; X-address bad prefix: rejected; X-address 64-bit tag flag: rejected; family seed wrong length: rejected; account public wrong length: rejected; RFC1751 wrong word count: rejected; RFC1751 unknown word: rejected",
+   "id": "D-10",
+   "pass": true,
+   "title": "failure-mode matrix (12/12 rejected)"
+  },
+  {
+   "detail": "25 validators, 25 distinct addresses, all Ed25519 master keys; first rB4FqubLxGBCKcrFp6ZsTWiKqGKC6HqSuP",
+   "id": "D-11",
+   "pass": true,
+   "title": "live testnet validator master keys -> distinct valid classic addresses"
+  },
+  {
+   "detail": "r4vhrMChCsaoFsBoCkRTRGUuc1njfr7bmA accountID f0633263b2e588395fcf15d406297e864f91aa35 balance 96999999999999880",
+   "id": "D-12",
+   "pass": true,
+   "title": "live PFTL genesis classic address parses and round-trips"
+  },
+  {
+   "detail": "0 transactions in the validated ledger, 0 classic-address fields, 0 X-address fields (X-addresses never appear on-ledger)",
+   "id": "D-13",
+   "pass": true,
+   "title": "live ledger address-format census (validated ledger 8281948)"
+  },
+  {
+   "detail": "self-test: 3/3 vectors PASS (3.82 s)",
+   "id": "D-14",
+   "pass": true,
+   "title": "Ed25519 RFC 8032 section 7.1 test vectors 1-3"
+  },
+  {
+   "detail": "public token aB4RnSmNXf18VzFMwG7jJEBo9WAZ7outDm9wdNzmyworG9vBwTm8; secret token verified in memory only and never recorded (LAB secret, fingerprint cb5e0e92eebbe77a)",
+   "id": "D-15",
+   "pass": true,
+   "title": "account-public / account-secret Base58Check tokens round-trip"
+  }
+ ],
+ "generated_at_utc": "2026-11-22T22:37:58Z",
+ "genesis_account_id": "f0633263b2e588395fcf15d406297e864f91aa35",
+ "ledger_census": {
+  "classic_address_fields": 0,
+  "ledger_index": "8281948",
+  "transactions": 0,
+  "x_address_fields": 0
+ },
+ "live_validator_addresses": [
+  "rB4FqubLxGBCKcrFp6ZsTWiKqGKC6HqSuP",
+  "rLTCQNgWXohYTz7pYBiPTs3By2ETnxHz26",
+  "rJkrVkZxkGjE2sQrTUtbgTp7HtrTyNoPfE",
+  "rGEPwZuD37wf1tkZpgZpMMrXByTs1GLEWS",
+  "rExWXTVqJBuXfiqhMRLQodXhX46jHN7Yi",
+  "raiNMq4jqtaCKbQty75T5HGmmdJgjjxhC8",
+  "r9LKuQf755tMwsdc1yoiqiipJzAVjVMheS",
+  "rGgkvnDXNVhHHjPYy8QQCn9HEzNJGDttaT",
+  "rUUZcJV4PemppyN6XkGfWjA98MU5izmBjq",
+  "rEMZGxppFoxXMDQHt6JBYMLSRGaQsTyfiV",
+  "rM4hj51x2Lh526zhwKx8LwhDZQY6K7ssY5",
+  "rMN2v8j74Zoj1wVigPakrZTkr5NwfQsLrp",
+  "r3ogEBMzZJV3N2yHWf2s6TZvgNTbEXdMfW",
+  "rD2DhwdDL1KutbM4M7XUWSDZ1tJgpcPVkK",
+  "rncmkMuTZ8hdVRzd1ifANviGC4WWPkz37V",
+  "rwxbit3jmAVpJbWiv9LLPWWw3TbMRmvwVF",
+  "rfPfpoBJ7rU4x1eavSQPxUtYEBvH7D8ypC",
+  "r9GDWwVYzazY4EsKwQBNvktToGHhkSRDte",
+  "r9u4Eo8636yS9Ega6MFugZpLX6X2vXQj27",
+  "rDkVVC4XqLU6LddzYZNLmcpXcAmLqfVJ4Q",
+  "rfydGVpZAf6aCzzQVH6xRCnCfUN7hUAdYR",
+  "rLMSW76GohPvYtAtsWZm3zByk21iXkDqEw",
+  "rHrms3i5NmXgwuVPuKigZ2csdPMydoJX3s",
+  "rGgHAjpv3oUXqEkrZRtWAkfUQDjXyaPKjy",
+  "rarsEV1nGYKHGB4Jdz9kBS89wHyuK98br2"
+ ],
+ "summary": {
+  "failed": 0,
+  "passed": 25,
+  "total": 25,
+  "wall_seconds": 8.74
+ }
+}

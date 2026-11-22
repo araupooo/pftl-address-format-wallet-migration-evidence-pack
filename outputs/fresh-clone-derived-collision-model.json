@@ -1,0 +1,63 @@
+{
+ "account_id_bits": 160,
+ "addresses_per_seed": {
+  "ed25519": 1,
+  "secp256k1_ordinal_space": "uint32 sequence in the Generator tweak (SecretKey.cpp calculateTweak)",
+  "secp256k1_ordinals_tested": 2
+ },
+ "birthday_scenarios_account_id": [
+  {
+   "accounts": 1000000,
+   "collision_probability": 3.4211354077791815e-37,
+   "log10_probability": -36.46582973619567
+  },
+  {
+   "accounts": 1000000000,
+   "collision_probability": 3.4211388254968716e-31,
+   "log10_probability": -30.465829302335266
+  },
+  {
+   "accounts": 1000000000000,
+   "collision_probability": 3.4211388289145895e-25,
+   "log10_probability": -24.465829301901408
+  },
+  {
+   "accounts": 1208925819614629174706176,
+   "collision_probability": 0.3934693402873666,
+   "log10_probability": -0.405089102854537
+  }
+ ],
+ "birthday_scenarios_seed": [
+  {
+   "collision_probability": 1.4693664691599209e-27,
+   "log10_probability": -26.832869874948273,
+   "seeds": 1000000
+  },
+  {
+   "collision_probability": 1.4693679370584914e-21,
+   "log10_probability": -20.83286944108787,
+   "seeds": 1000000000
+  },
+  {
+   "collision_probability": 0.3934693402873666,
+   "log10_probability": -0.405089102854537,
+   "seeds": 18446744073709551616
+  }
+ ],
+ "checksum_bits": 32,
+ "destination_tag_space": 4294967296,
+ "expected_undetected_single_char_corruptions": 4.5122578740119934e-07,
+ "notes": [
+  "Birthday probabilities use the standard approximation 1 - exp(-n(n-1) / 2^(bits+1)).",
+  "Checksum analysis assumes the 32-bit double-SHA-256 checksum is uniform over random corruptions; the drill measured 12/12 malformed inputs rejected, including a bad checksum.",
+  "The 2^160 AccountID space is what makes accidental collision negligible; the realistic confusion risks are encoding-level (same key, different format) not hash collisions."
+ ],
+ "same_seed_distinct_addresses_measured": 2,
+ "seed_bits": 128,
+ "single_character_corruptions_classic_34char": 1938,
+ "x_address_variants_per_account": {
+  "networks": 2,
+  "note": "1 no-tag form + 2^32 tagged forms per network",
+  "tags_per_network": 4294967297
+ }
+}

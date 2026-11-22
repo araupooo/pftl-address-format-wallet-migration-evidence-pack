@@ -1,0 +1,10 @@
+address_model.py run start: 2026-11-22T22:38:07Z
+address formats inventoried: 9
+key formats inventoried: 2
+seed formats inventoried: 4
+birthday: 1000000 accounts in 2^160 -> P=3.421e-37
+birthday: 1000000000 accounts in 2^160 -> P=3.421e-31
+birthday: 1000000000000 accounts in 2^160 -> P=3.421e-25
+birthday: 1208925819614629174706176 accounts in 2^160 -> P=3.935e-01
+single-char corruptions of a 34-char classic address: 1938; expected undetected: 4.512e-07
+address_model.py run end: 2026-11-22T22:38:07Z
