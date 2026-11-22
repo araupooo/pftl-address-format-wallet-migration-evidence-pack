@@ -1,0 +1,242 @@
+{
+ "checks": [
+  {
+   "detail": "ref rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh | js rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh | py rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh",
+   "id": "X-docs-secp256k1-derive",
+   "pass": true,
+   "title": "3-way derivation agreement (docs, secp256k1)"
+  },
+  {
+   "detail": "main-tag0 XVPcpSm47b1CZkf5AkKM9a84dQHe3mS14LVdcxAFurk93tF test-tag12345 TVK3SYvMLZR6rEtLDZh3saYHaqFSeMfyuiuZdqF49Mhpsws no-tag XVPcpSm47b1CZkf5AkKM9a84dQHe3m4sBhsrA4XtnBECTAc",
+   "id": "X-docs-secp256k1-xaddr",
+   "pass": true,
+   "title": "3-way X-address agreement (docs, secp256k1)"
+  },
+  {
+   "detail": "ref rGWrZyQqhTp9Xu7G5Pkayo7bXjH4k4QYpf | js rGWrZyQqhTp9Xu7G5Pkayo7bXjH4k4QYpf | py rGWrZyQqhTp9Xu7G5Pkayo7bXjH4k4QYpf",
+   "id": "X-docs-ed25519-derive",
+   "pass": true,
+   "title": "3-way derivation agreement (docs, ed25519)"
+  },
+  {
+   "detail": "main-tag0 XVLhHMPHU98es4dbozjVtdWzVrDjtV8AqEL4xcZj5whKbmc test-tag12345 TVE26TYGhfLC7tQDno7G8dGtxSkYQn7h4mkJyVSGxTcrDFJ no-tag XVLhHMPHU98es4dbozjVtdWzVrDjtV5fdx1mHp98tDMoQXb",
+   "id": "X-docs-ed25519-xaddr",
+   "pass": true,
+   "title": "3-way X-address agreement (docs, ed25519)"
+  },
+  {
+   "detail": "ref rnQjHw3nDZGVmw96oZzynS789C74F7w6XG | js rnQjHw3nDZGVmw96oZzynS789C74F7w6XG | py rnQjHw3nDZGVmw96oZzynS789C74F7w6XG",
+   "id": "X-lab-1-secp256k1-derive",
+   "pass": true,
+   "title": "3-way derivation agreement (lab-1, secp256k1)"
+  },
+  {
+   "detail": "main-tag0 X76v3n6SF6KyaU5NMoCGti6o9yPgKQLdELKexKJpAKRGyWg test-tag12345 T7dSYBiRge1zX57qdcQs8iT6dQv7Fzrj8ij2yUw2Bb6AUYi no-tag X76v3n6SF6KyaU5NMoCGti6o9yPgKQEohs1sG5tafMp7cwi",
+   "id": "X-lab-1-secp256k1-xaddr",
+   "pass": true,
+   "title": "3-way X-address agreement (lab-1, secp256k1)"
+  },
+  {
+   "detail": "ref rpgMYRJx8LveimVffxCwq82yDKnMnDGxVW | js rpgMYRJx8LveimVffxCwq82yDKnMnDGxVW | py rpgMYRJx8LveimVffxCwq82yDKnMnDGxVW",
+   "id": "X-lab-1-ed25519-derive",
+   "pass": true,
+   "title": "3-way derivation agreement (lab-1, ed25519)"
+  },
+  {
+   "detail": "main-tag0 X7ZpsAbsNAvBeuQipZPQ5j5mMSDm7g6mnMpn47RPWrWGKih test-tag12345 T77Y7skpau7DaRBTJ43Bcj7CF1kZzG41c1SrPMHvkGZpeQT no-tag X7ZpsAbsNAvBeuQipZPQ5j5mMSDm7gcvthZTgtrSgr2PvYy",
+   "id": "X-lab-1-ed25519-xaddr",
+   "pass": true,
+   "title": "3-way X-address agreement (lab-1, ed25519)"
+  },
+  {
+   "detail": "ref rJ7DVsBaVmnLdHj5tcKcpdmt2yas9vJKhJ | js rJ7DVsBaVmnLdHj5tcKcpdmt2yas9vJKhJ | py rJ7DVsBaVmnLdHj5tcKcpdmt2yas9vJKhJ",
+   "id": "X-lab-2-secp256k1-derive",
+   "pass": true,
+   "title": "3-way derivation agreement (lab-2, secp256k1)"
+  },
+  {
+   "detail": "main-tag0 XVS7RgMrMQsrYtVWiAM4vQJaAjhVvU2mGRwZWxWFxs876yd test-tag12345 TVMzq8VzDMbpzQG33ka9FQhrRwbJR8E1oA2VXqP4UMVNquR no-tag XVS7RgMrMQsrYtVWiAM4vQJaAjhVvUVAn36Aq4at3a7MHSC",
+   "id": "X-lab-2-secp256k1-xaddr",
+   "pass": true,
+   "title": "3-way X-address agreement (lab-2, secp256k1)"
+  },
+  {
+   "detail": "ref rLiBa7sdTu2SNRgYuiqokgbNbHHeob8piy | js rLiBa7sdTu2SNRgYuiqokgbNbHHeob8piy | py rLiBa7sdTu2SNRgYuiqokgbNbHHeob8piy",
+   "id": "X-lab-2-ed25519-derive",
+   "pass": true,
+   "title": "3-way derivation agreement (lab-2, ed25519)"
+  },
+  {
+   "detail": "main-tag0 XV2DyHFUwcvaN7FjJKJ1opiAKpBKrrgTR7KWt7zx3fkmCqR test-tag12345 TVVkPPyBp27fCzbL23se6pcq8T5fWbMZxzjSuM1V44faex6 no-tag XV2DyHFUwcvaN7FjJKJ1opiAKpBKrrbdNBiuUtbrJfYrRd9",
+   "id": "X-lab-2-ed25519-xaddr",
+   "pass": true,
+   "title": "3-way X-address agreement (lab-2, ed25519)"
+  },
+  {
+   "detail": "ref rMF7jk4hoEFxaQp2GZ9LoGzmE3XTbkFp7E | js rMF7jk4hoEFxaQp2GZ9LoGzmE3XTbkFp7E | py rMF7jk4hoEFxaQp2GZ9LoGzmE3XTbkFp7E",
+   "id": "X-lab-3-secp256k1-derive",
+   "pass": true,
+   "title": "3-way derivation agreement (lab-3, secp256k1)"
+  },
+  {
+   "detail": "main-tag0 XVdPSYpLFPhZpPhnGikFLZ2cJibnS78tFSWqh3Cy4YSMuFb test-tag12345 TVYuieBKgLc2TtFgYCVbNZLW8Jf1xh7rMxvmnrYWciuhr5E no-tag XVdPSYpLFPhZpPhnGikFLZ2cJibnS75hdwhD4YGpYbuCHDR",
+   "id": "X-lab-3-secp256k1-xaddr",
+   "pass": true,
+   "title": "3-way X-address agreement (lab-3, secp256k1)"
+  },
+  {
+   "detail": "ref rJFfZdZabbtvyBdRzvyzh3RGaxDfufHDk3 | js rJFfZdZabbtvyBdRzvyzh3RGaxDfufHDk3 | py rJFfZdZabbtvyBdRzvyzh3RGaxDfufHDk3",
+   "id": "X-lab-3-ed25519-derive",
+   "pass": true,
+   "title": "3-way derivation agreement (lab-3, ed25519)"
+  },
+  {
+   "detail": "main-tag0 XVTbGJGQihQXyi2N2Zs2yh9GkxFEd3w6BswDoJt9qeQEqXp test-tag12345 TVPfgQRP5rxZR4LqiM8M1suBNQMh36qo5Z29FBk6nvaehvc no-tag XVTbGJGQihQXyi2N2Zs2yh9GkxFEd3niyk6cf57Dr63Wxcs",
+   "id": "X-lab-3-ed25519-xaddr",
+   "pass": true,
+   "title": "3-way X-address agreement (lab-3, ed25519)"
+  },
+  {
+   "detail": "sig 70 bytes, identical across ref/xrpl-py/ripple-keypairs: True; reference verify of both foreign signatures: True",
+   "id": "X-tx-0-secp256k1-sig",
+   "pass": true,
+   "title": "3-way offline signature agreement (tx-0-secp256k1)"
+  },
+  {
+   "detail": "sig 64 bytes, identical across ref/xrpl-py/ripple-keypairs: True; reference verify of both foreign signatures: True",
+   "id": "X-tx-0-ed25519-sig",
+   "pass": true,
+   "title": "3-way offline signature agreement (tx-0-ed25519)"
+  },
+  {
+   "detail": "sig 70 bytes, identical across ref/xrpl-py/ripple-keypairs: True; reference verify of both foreign signatures: True",
+   "id": "X-tx-1-secp256k1-sig",
+   "pass": true,
+   "title": "3-way offline signature agreement (tx-1-secp256k1)"
+  },
+  {
+   "detail": "sig 64 bytes, identical across ref/xrpl-py/ripple-keypairs: True; reference verify of both foreign signatures: True",
+   "id": "X-tx-1-ed25519-sig",
+   "pass": true,
+   "title": "3-way offline signature agreement (tx-1-ed25519)"
+  },
+  {
+   "detail": "sig 71 bytes, identical across ref/xrpl-py/ripple-keypairs: True; reference verify of both foreign signatures: True",
+   "id": "X-tx-2-secp256k1-sig",
+   "pass": true,
+   "title": "3-way offline signature agreement (tx-2-secp256k1)"
+  },
+  {
+   "detail": "sig 64 bytes, identical across ref/xrpl-py/ripple-keypairs: True; reference verify of both foreign signatures: True",
+   "id": "X-tx-2-ed25519-sig",
+   "pass": true,
+   "title": "3-way offline signature agreement (tx-2-ed25519)"
+  },
+  {
+   "detail": "sig 70 bytes, identical across ref/xrpl-py/ripple-keypairs: True; reference verify of both foreign signatures: True",
+   "id": "X-tx-3-secp256k1-sig",
+   "pass": true,
+   "title": "3-way offline signature agreement (tx-3-secp256k1)"
+  },
+  {
+   "detail": "sig 64 bytes, identical across ref/xrpl-py/ripple-keypairs: True; reference verify of both foreign signatures: True",
+   "id": "X-tx-3-ed25519-sig",
+   "pass": true,
+   "title": "3-way offline signature agreement (tx-3-ed25519)"
+  }
+ ],
+ "generated_at_utc": "2026-11-22T22:24:30Z",
+ "summary": {
+  "failed": 0,
+  "implementations": [
+   "reference (this pack, pure Python stdlib)",
+   "xrpl-py 5.2.0",
+   "ripple-keypairs + ripple-address-codec (npm)"
+  ],
+  "passed": 24,
+  "total": 24,
+  "wall_seconds": 10.36
+ },
+ "test_transactions": [
+  {
+   "account": "rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh",
+   "algorithm": "secp256k1",
+   "key": "tx-0-secp256k1",
+   "seed_index": 0,
+   "signature_bytes": 70,
+   "signature_hex": "3044022060f2afce199eb812ec742103e69134bada0a3e33ec34640fe6680ad838d7e5b902204d39ef0c38c00fbc97d097a7b7cb9a063653f3d21b744687ac9e4268f72b7ae8",
+   "signing_bytes_sha256": "d9e4748eef0c484d6a3059b97e23af5228bb43cf6bcbfdff4b0c8b25faa8c629",
+   "signing_hash": "28bd25c349e36d06eb10b0f779cbc096deeab2675f666b9362fbabd53f5fdbed"
+  },
+  {
+   "account": "rGWrZyQqhTp9Xu7G5Pkayo7bXjH4k4QYpf",
+   "algorithm": "ed25519",
+   "key": "tx-0-ed25519",
+   "seed_index": 0,
+   "signature_bytes": 64,
+   "signature_hex": "e7b6000f137afcb290e919b2602abde1f3be00dc91e419498a3b685c6babc2daff65592d7eec7050050b4a987c847e14e72e2e0cd2576ba4c771065e6cf42f0d",
+   "signing_bytes_sha256": "ec5175933d761f47c8e5f4a662bb46cc88483b843ad8ce8396cce410a3f4cbf4",
+   "signing_hash": "5eb63d023f14875d80dc62712e587839e8771653abb1e6e20c9571a6739ace1c"
+  },
+  {
+   "account": "rnQjHw3nDZGVmw96oZzynS789C74F7w6XG",
+   "algorithm": "secp256k1",
+   "key": "tx-1-secp256k1",
+   "seed_index": 1,
+   "signature_bytes": 70,
+   "signature_hex": "30440220043fbc35009742d87690f6a7f1138b93ba7dfbe855e5ea4c33bef76b5d76b6e302203ad3bd62324167278e0794f450c71d53cab73ee25e1512c0c25e4c5ab09daeaf",
+   "signing_bytes_sha256": "6eb562ff02de9e65cea346ff3c8f39b52a5912173471697e2ddedadfaca5fb9d",
+   "signing_hash": "19b35140075cd9314e15ef7aad58ebcef4355ae2e1794bcec761675b2ae9213f"
+  },
+  {
+   "account": "rpgMYRJx8LveimVffxCwq82yDKnMnDGxVW",
+   "algorithm": "ed25519",
+   "key": "tx-1-ed25519",
+   "seed_index": 1,
+   "signature_bytes": 64,
+   "signature_hex": "ea24496379cc8a5d35ab4e9d5ab73f8bc2c5ec0239bb8b0a7d6caba1261d4a4b1b27882031b1019a759b32eb6fd5cd97fb2c303709df44f4a1da0f20c92d1702",
+   "signing_bytes_sha256": "5e4411272cdcbb8d7c029a52c72ae401846d1ee94ead82ff6db8662e19e8a447",
+   "signing_hash": "d74d27a9f0d9bddf94471ca57d5893b8561ca0c1182f6db871168c072267277e"
+  },
+  {
+   "account": "rJ7DVsBaVmnLdHj5tcKcpdmt2yas9vJKhJ",
+   "algorithm": "secp256k1",
+   "key": "tx-2-secp256k1",
+   "seed_index": 2,
+   "signature_bytes": 71,
+   "signature_hex": "3045022100ac52f4ea563147928e46785c15fa7defbcf0508d1781c80a95b20ace69be559a02206657539e9a79e2a60cc0d3fbc6b17d76b000e1f6e8ba6a76d6ffee39e62d5b2d",
+   "signing_bytes_sha256": "34f9291ce10b904434374f67148d0c8951a98e4e5d3b3dddcc69f3a45c9fd544",
+   "signing_hash": "2b0698694cb9d95ed8cde36f8987fba9f3b349435a2f61ddc279e0deaa06a8f2"
+  },
+  {
+   "account": "rLiBa7sdTu2SNRgYuiqokgbNbHHeob8piy",
+   "algorithm": "ed25519",
+   "key": "tx-2-ed25519",
+   "seed_index": 2,
+   "signature_bytes": 64,
+   "signature_hex": "c5aba75dcbeecd3d80177ebb11b25bb15231f776e45063a79157cb2ba9c440802cfeaa5ade6e8c929addc385b5d540500d8ffd4f58432319cd9719d769b4c505",
+   "signing_bytes_sha256": "c18aab5e9828f31777a35ef52eee4e0c9fe810fc7155ea6d8303b03c0adf6327",
+   "signing_hash": "ec29e2c3d3b13b2fc583a3011ec0732bc593a33f598b556bf55d16d08180ba3f"
+  },
+  {
+   "account": "rMF7jk4hoEFxaQp2GZ9LoGzmE3XTbkFp7E",
+   "algorithm": "secp256k1",
+   "key": "tx-3-secp256k1",
+   "seed_index": 3,
+   "signature_bytes": 70,
+   "signature_hex": "30440220401c80066ae9aee3d4e42b0f5ec5e0df2ffdd72f3b5132aee69ac19044d97373022050aaa783b963567d3596737600b5da5add36ef9a235640d42246ec302b776159",
+   "signing_bytes_sha256": "187d5e1b1b9dfaaa391dc142244fd3e9c0755136d41d4891eacf5d26dc75f4ed",
+   "signing_hash": "3002178212b2e8adf6a02307e379d4b189b46ba3db7436794ec43aec08737357"
+  },
+  {
+   "account": "rJFfZdZabbtvyBdRzvyzh3RGaxDfufHDk3",
+   "algorithm": "ed25519",
+   "key": "tx-3-ed25519",
+   "seed_index": 3,
+   "signature_bytes": 64,
+   "signature_hex": "2432a0663dceaefbd671b4acade918f5109d1a173ffd8736848f6ccbaf920116c56128e44d9885c4e1355b230a2b7ef631123d02d1891742bcf708721a57860c",
+   "signing_bytes_sha256": "cba4291c3afc8e0a1cf42a0e682ad7ae36e03f3378e04b1195e8edceb1db06ac",
+   "signing_hash": "45872b2d546d4d851bea3aedfcdfc9d8cbc7b46114fa6090903a0df86c8b57de"
+  }
+ ]
+}

@@ -1,0 +1,29 @@
+drill run start: 2026-11-22T22:24:16Z
+safety boundary: freshly generated LAB keys only; sign offline only; no transactions submitted; lab seeds never written to disk
+PASS D-01: docs seed secp256k1 ordinal 0 derivation — pub 0330e7fc9d56bb25… address rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh
+PASS D-02: docs seed Ed25519 derivation — pub edaac3f98bb94f45… address rGWrZyQqhTp9Xu7G5Pkayo7bXjH4k4QYpf
+PASS D-03: passphrase 'masterpassphrase' -> docs seed — generateSeed is SHA-512-Half(passphrase)[:16]; matches the public docs seed exactly
+PASS D-04: X-address known vectors (main tag 0, test tag 12345) — main XVPcpSm47b1CZkf5AkKM9a84dQHe3mS14LVdcxAFurk93tF test TVK3SYvMLZR6rEtLDZh3saYHaqFSeMfyuiuZdqF49Mhpsws
+PASS D-05: RFC1751 12-word seed encode/decode + parity detection — words: I IRE BOND BOW TRIO LAID SEAT GOAL HEN IBIS IBIS DARE
+PASS D-06: lab seed 1 ed25519 derivation -> valid classic address — LAB address rHoa5LnVLd9f7eAi6yj4Fg3FdYjs5zS1L4 (seed fingerprint 089f4856bc7aaea1)
+PASS D-06: lab seed 1 secp256k1 derivation -> valid classic address — LAB address rnfPBQFxhSEcASjwY1tjnKZ2rNnDCfkjPB (seed fingerprint 089f4856bc7aaea1)
+PASS D-07: lab seed 1 secp256k1 ordinal 0 vs 1 differ — ordinal 0 rnfPBQFxhSEcASjwY1tjnKZ2rNnDCfkjPB ordinal 1 r9b3WD43MPWzCo1KKSgtBx8w6CuikqvaD2
+PASS D-08: lab seed 1: same seed, Ed25519 vs secp256k1 give different addresses — ed25519 rHoa5LnVLd9f7eAi6yj4Fg3FdYjs5zS1L4 secp256k1 rnfPBQFxhSEcASjwY1tjnKZ2rNnDCfkjPB (same seed, two accounts)
+PASS D-06: lab seed 2 ed25519 derivation -> valid classic address — LAB address rL5XtMLBM7M59E8rqEkeq5oFQ14tMbpiUt (seed fingerprint 66a01024a4fde100)
+PASS D-06: lab seed 2 secp256k1 derivation -> valid classic address — LAB address rLmNFckdLexHhrqRtZiusBBqQ9s9VcK1ff (seed fingerprint 66a01024a4fde100)
+PASS D-07: lab seed 2 secp256k1 ordinal 0 vs 1 differ — ordinal 0 rLmNFckdLexHhrqRtZiusBBqQ9s9VcK1ff ordinal 1 rf9QpkvQcPTAVrWxFE3k9GfNaG5Z9pWqeJ
+PASS D-08: lab seed 2: same seed, Ed25519 vs secp256k1 give different addresses — ed25519 rL5XtMLBM7M59E8rqEkeq5oFQ14tMbpiUt secp256k1 rLmNFckdLexHhrqRtZiusBBqQ9s9VcK1ff (same seed, two accounts)
+PASS D-06: lab seed 3 ed25519 derivation -> valid classic address — LAB address rMvbc3WdHs7RVBETG3MfTFZxuN2sbxGbuy (seed fingerprint 05d2e1c2fe6dc385)
+PASS D-06: lab seed 3 secp256k1 derivation -> valid classic address — LAB address rQDbD3t1y9d1NFB4Uz26CAshnHXaTTdQhj (seed fingerprint 05d2e1c2fe6dc385)
+PASS D-07: lab seed 3 secp256k1 ordinal 0 vs 1 differ — ordinal 0 rQDbD3t1y9d1NFB4Uz26CAshnHXaTTdQhj ordinal 1 rKeSHZ8NAaaxcpoPuWBadvNCQXcJ9v2FNc
+PASS D-08: lab seed 3: same seed, Ed25519 vs secp256k1 give different addresses — ed25519 rMvbc3WdHs7RVBETG3MfTFZxuN2sbxGbuy secp256k1 rQDbD3t1y9d1NFB4Uz26CAshnHXaTTdQhj (same seed, two accounts)
+PASS D-09: offline sign/verify ed25519 (+ tamper rejection) — signature 64 bytes
+PASS D-09: offline sign/verify secp256k1 (+ tamper rejection) — signature 71 bytes
+PASS D-10: failure-mode matrix (12/12 rejected) — bad checksum: rejected; wrong version byte: rejected; invalid base58 char: rejected; too short: rejected; empty string: rejected; X-address tag overflow: rejected; X-address bad prefix: rejected; X-address 64-bit tag flag: rejected; family seed wrong length: rejected; account public wrong length: rejected; RFC1751 wrong word count: rejected; RFC1751 unknown word: rejected
+PASS D-11: live testnet validator master keys -> distinct valid classic addresses — 25 validators, 25 distinct addresses, all Ed25519 master keys; first rB4FqubLxGBCKcrFp6ZsTWiKqGKC6HqSuP
+PASS D-12: live PFTL genesis classic address parses and round-trips — r4vhrMChCsaoFsBoCkRTRGUuc1njfr7bmA accountID f0633263b2e588395fcf15d406297e864f91aa35 balance 96999999999999880
+PASS D-13: live ledger address-format census (validated ledger 8281677) — 0 transactions in the validated ledger, 0 classic-address fields, 0 X-address fields (X-addresses never appear on-ledger)
+PASS D-14: Ed25519 RFC 8032 section 7.1 test vectors 1-3 — self-test: 3/3 vectors PASS (3.88 s)
+PASS D-15: account-public / account-secret Base58Check tokens round-trip — public token aBRVfJKZP8RmZXv5g72i7W1jVJY1gepMRb3x11phVAV7sw63WGcS; secret token verified in memory only and never recorded (LAB secret, fingerprint 0125976a240192d7)
+drill result: 25/25 cases PASS (12/12 attacks/rejections in D-10 matrix)
+drill run end: 2026-11-22T22:24:25Z

@@ -1,0 +1,29 @@
+probe_all.sh run start: 2026-11-22T22:23:51Z
+pack root: /home/hatch/workspace/goals/postfiat-task-node-connection/hidden_files/task-e00300a06d38c5be564546ba3de18dd5/pack
+safety boundary: read-only queries only; no transactions, no flood traffic
+server_info.json -> 200 1.360094s sha256=240b3c96ac3ca3109c8fc0c3dc6609912f0a49123998f9a7ae0886155102e6fa
+validated seq for numeric ledger fetch: 8281677
+ledger_current.json -> 200 1.009616s sha256=87ff43d473c54459408041fc053cf8f09bfd74d6465dd30be5ace3befb8c42d4
+ledger_closed.json -> 200 1.009535s sha256=28549ecb25efe22a0fd06b9161e8d802e5c3ac79f306008fd82944f46796d436
+fee.json -> 200 1.221766s sha256=3ff254f83d708aea652b5b549271f6c855259188ca00b988a757f60cb39717c7
+feature_list.json -> 200 1.122950s sha256=70585f308ab55dfdc84093e95a21c3859099dcbf1c5b04f1f00cea3a6785984f
+server_state.json -> 200 1.266388s sha256=42daf0a112508357464f664d2d2a73d9ab518a681aefa3a616c14c0f34e9f665
+validators.json -> 403 1.119720s sha256=91268711f43361e9d094089486492db986d6413020b6763903eb4c3b473216b4
+peers.json -> 403 0.944857s sha256=91268711f43361e9d094089486492db986d6413020b6763903eb4c3b473216b4
+invalid_method.json -> 200 1.139436s sha256=e7b21b8092a7192fb17ab985ff2ebd3de10df4b395311385249fdea2acd17540
+wallet_propose.json -> 403 0.928700s sha256=91268711f43361e9d094089486492db986d6413020b6763903eb4c3b473216b4
+rpc-account_info-pftl-genesis.json -> 200 1.134442s sha256=7aa184dbdf70294d21f7f7427da04beabda97fbdfc72c523d31560ae422e35a4
+rpc-account_info-xrpl-genesis.json -> 200 1.140059s sha256=8f77906be32da37ec9a8e4c61244ce2abc794af15b4535784e97c73ce80512b5
+rpc-account_info-account-one.json -> 200 1.019311s sha256=96e2efda004fe4e2c23fc9559499ccc93cbe06c84842de415298d71269bfe0db
+rpc-account_info-zero-account.json -> 200 1.208716s sha256=127c33b309ebd045d4627755916492c0c6296b9738610a609f7cbc87d2fa19de
+rpc-account_info-validator-master.json -> 200 0.921883s sha256=eae68c797f1c946afddf4f03b0806ee85300b8fcf0ffc3d47b007bbe564306d3
+rpc-account_info-docs-seed.json -> 200 1.011765s sha256=4a2d76a2dc6709d519d6fa914165b2717a1860d5a6648f4c7deb0df72eab54e7
+rpc-account_info-malformed.json -> 200 1.024404s sha256=1b6d3f41926fe4a080fb0b7eb23d4a328fe9f15e711487abca3ba829d916f270
+rpc-account_info-xaddress.json -> 200 0.937227s sha256=17e73f4975c0b9bf24ef4f993cef6bc94e6be2937cb2eafa6d3257eee4acaa4b
+testnet_vl.json -> 200 0.783387s 14781B sha256=5d4f5a18a18fead4105e5dc00cf7e11a71b9be4bc140357d1b4ea12116df59e7
+explorer_health.json -> 500 0.925724s 33B sha256=de52b25e91c4558119b2a577b3d20a808e2bbca0f33b2caf63f5e81325a6a3ab
+explorer_metrics.json -> 200 0.853649s 108B sha256=cafd29dba250425da17962b777c6efc6a2c10a27bb3058b44eeebffeb7991287
+postfiat_org.html -> 200 0.721677s 34713B sha256=da6b3c81efda3e48680d5ffde48b7200c02a878e2bf683aa1b5e44ea955bea19
+postfiat_whitepaper.html -> 200 0.870897s 163089B sha256=33b15b1a28f5ebdad68ccb3eeb719fc0e4738b8fe3e8ce89a5317143e7ba472c
+docs_postfiat_org.html -> 404 0.781007s 4688B sha256=b27094c4b9f9e84fdfc62853f384a42e1bea204bedcb082a3d7e931d5ad014b6
+probe_all.sh run end: 2026-11-22T22:24:16Z

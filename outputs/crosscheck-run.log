@@ -1,0 +1,29 @@
+crosscheck run start: 2026-11-22T22:24:30Z
+cross-checking 4 seeds (1 public docs vector + 3 fresh LAB seeds)
+temp seed file deleted (seeds never persisted)
+PASS X-docs-secp256k1-derive: 3-way derivation agreement (docs, secp256k1) — ref rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh | js rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh | py rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh
+PASS X-docs-secp256k1-xaddr: 3-way X-address agreement (docs, secp256k1) — main-tag0 XVPcpSm47b1CZkf5AkKM9a84dQHe3mS14LVdcxAFurk93tF test-tag12345 TVK3SYvMLZR6rEtLDZh3saYHaqFSeMfyuiuZdqF49Mhpsws no-tag XVPcpSm47b1CZkf5AkKM9a84dQHe3m4sBhsrA4XtnBECTAc
+PASS X-docs-ed25519-derive: 3-way derivation agreement (docs, ed25519) — ref rGWrZyQqhTp9Xu7G5Pkayo7bXjH4k4QYpf | js rGWrZyQqhTp9Xu7G5Pkayo7bXjH4k4QYpf | py rGWrZyQqhTp9Xu7G5Pkayo7bXjH4k4QYpf
+PASS X-docs-ed25519-xaddr: 3-way X-address agreement (docs, ed25519) — main-tag0 XVLhHMPHU98es4dbozjVtdWzVrDjtV8AqEL4xcZj5whKbmc test-tag12345 TVE26TYGhfLC7tQDno7G8dGtxSkYQn7h4mkJyVSGxTcrDFJ no-tag XVLhHMPHU98es4dbozjVtdWzVrDjtV5fdx1mHp98tDMoQXb
+PASS X-lab-1-secp256k1-derive: 3-way derivation agreement (lab-1, secp256k1) — ref rnQjHw3nDZGVmw96oZzynS789C74F7w6XG | js rnQjHw3nDZGVmw96oZzynS789C74F7w6XG | py rnQjHw3nDZGVmw96oZzynS789C74F7w6XG
+PASS X-lab-1-secp256k1-xaddr: 3-way X-address agreement (lab-1, secp256k1) — main-tag0 X76v3n6SF6KyaU5NMoCGti6o9yPgKQLdELKexKJpAKRGyWg test-tag12345 T7dSYBiRge1zX57qdcQs8iT6dQv7Fzrj8ij2yUw2Bb6AUYi no-tag X76v3n6SF6KyaU5NMoCGti6o9yPgKQEohs1sG5tafMp7cwi
+PASS X-lab-1-ed25519-derive: 3-way derivation agreement (lab-1, ed25519) — ref rpgMYRJx8LveimVffxCwq82yDKnMnDGxVW | js rpgMYRJx8LveimVffxCwq82yDKnMnDGxVW | py rpgMYRJx8LveimVffxCwq82yDKnMnDGxVW
+PASS X-lab-1-ed25519-xaddr: 3-way X-address agreement (lab-1, ed25519) — main-tag0 X7ZpsAbsNAvBeuQipZPQ5j5mMSDm7g6mnMpn47RPWrWGKih test-tag12345 T77Y7skpau7DaRBTJ43Bcj7CF1kZzG41c1SrPMHvkGZpeQT no-tag X7ZpsAbsNAvBeuQipZPQ5j5mMSDm7gcvthZTgtrSgr2PvYy
+PASS X-lab-2-secp256k1-derive: 3-way derivation agreement (lab-2, secp256k1) — ref rJ7DVsBaVmnLdHj5tcKcpdmt2yas9vJKhJ | js rJ7DVsBaVmnLdHj5tcKcpdmt2yas9vJKhJ | py rJ7DVsBaVmnLdHj5tcKcpdmt2yas9vJKhJ
+PASS X-lab-2-secp256k1-xaddr: 3-way X-address agreement (lab-2, secp256k1) — main-tag0 XVS7RgMrMQsrYtVWiAM4vQJaAjhVvU2mGRwZWxWFxs876yd test-tag12345 TVMzq8VzDMbpzQG33ka9FQhrRwbJR8E1oA2VXqP4UMVNquR no-tag XVS7RgMrMQsrYtVWiAM4vQJaAjhVvUVAn36Aq4at3a7MHSC
+PASS X-lab-2-ed25519-derive: 3-way derivation agreement (lab-2, ed25519) — ref rLiBa7sdTu2SNRgYuiqokgbNbHHeob8piy | js rLiBa7sdTu2SNRgYuiqokgbNbHHeob8piy | py rLiBa7sdTu2SNRgYuiqokgbNbHHeob8piy
+PASS X-lab-2-ed25519-xaddr: 3-way X-address agreement (lab-2, ed25519) — main-tag0 XV2DyHFUwcvaN7FjJKJ1opiAKpBKrrgTR7KWt7zx3fkmCqR test-tag12345 TVVkPPyBp27fCzbL23se6pcq8T5fWbMZxzjSuM1V44faex6 no-tag XV2DyHFUwcvaN7FjJKJ1opiAKpBKrrbdNBiuUtbrJfYrRd9
+PASS X-lab-3-secp256k1-derive: 3-way derivation agreement (lab-3, secp256k1) — ref rMF7jk4hoEFxaQp2GZ9LoGzmE3XTbkFp7E | js rMF7jk4hoEFxaQp2GZ9LoGzmE3XTbkFp7E | py rMF7jk4hoEFxaQp2GZ9LoGzmE3XTbkFp7E
+PASS X-lab-3-secp256k1-xaddr: 3-way X-address agreement (lab-3, secp256k1) — main-tag0 XVdPSYpLFPhZpPhnGikFLZ2cJibnS78tFSWqh3Cy4YSMuFb test-tag12345 TVYuieBKgLc2TtFgYCVbNZLW8Jf1xh7rMxvmnrYWciuhr5E no-tag XVdPSYpLFPhZpPhnGikFLZ2cJibnS75hdwhD4YGpYbuCHDR
+PASS X-lab-3-ed25519-derive: 3-way derivation agreement (lab-3, ed25519) — ref rJFfZdZabbtvyBdRzvyzh3RGaxDfufHDk3 | js rJFfZdZabbtvyBdRzvyzh3RGaxDfufHDk3 | py rJFfZdZabbtvyBdRzvyzh3RGaxDfufHDk3
+PASS X-lab-3-ed25519-xaddr: 3-way X-address agreement (lab-3, ed25519) — main-tag0 XVTbGJGQihQXyi2N2Zs2yh9GkxFEd3w6BswDoJt9qeQEqXp test-tag12345 TVPfgQRP5rxZR4LqiM8M1suBNQMh36qo5Z29FBk6nvaehvc no-tag XVTbGJGQihQXyi2N2Zs2yh9GkxFEd3niyk6cf57Dr63Wxcs
+PASS X-tx-0-secp256k1-sig: 3-way offline signature agreement (tx-0-secp256k1) — sig 70 bytes, identical across ref/xrpl-py/ripple-keypairs: True; reference verify of both foreign signatures: True
+PASS X-tx-0-ed25519-sig: 3-way offline signature agreement (tx-0-ed25519) — sig 64 bytes, identical across ref/xrpl-py/ripple-keypairs: True; reference verify of both foreign signatures: True
+PASS X-tx-1-secp256k1-sig: 3-way offline signature agreement (tx-1-secp256k1) — sig 70 bytes, identical across ref/xrpl-py/ripple-keypairs: True; reference verify of both foreign signatures: True
+PASS X-tx-1-ed25519-sig: 3-way offline signature agreement (tx-1-ed25519) — sig 64 bytes, identical across ref/xrpl-py/ripple-keypairs: True; reference verify of both foreign signatures: True
+PASS X-tx-2-secp256k1-sig: 3-way offline signature agreement (tx-2-secp256k1) — sig 71 bytes, identical across ref/xrpl-py/ripple-keypairs: True; reference verify of both foreign signatures: True
+PASS X-tx-2-ed25519-sig: 3-way offline signature agreement (tx-2-ed25519) — sig 64 bytes, identical across ref/xrpl-py/ripple-keypairs: True; reference verify of both foreign signatures: True
+PASS X-tx-3-secp256k1-sig: 3-way offline signature agreement (tx-3-secp256k1) — sig 70 bytes, identical across ref/xrpl-py/ripple-keypairs: True; reference verify of both foreign signatures: True
+PASS X-tx-3-ed25519-sig: 3-way offline signature agreement (tx-3-ed25519) — sig 64 bytes, identical across ref/xrpl-py/ripple-keypairs: True; reference verify of both foreign signatures: True
+crosscheck result: 24/24 checks PASS
+crosscheck run end: 2026-11-22T22:24:41Z

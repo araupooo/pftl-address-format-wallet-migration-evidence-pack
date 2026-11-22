@@ -1,0 +1,2 @@
+{"result":{"error":"actMalformed","error_code":35,"error_message":"Account malformed.","ledger_hash":"36068EC782CDA2F953428FA48B08FDC04D7D41F385CA6137614C5D1F2CE3AE57","ledger_index":8281683,"request":{"account":"rBADADDRESS00000000000000000000000000","command":"account_info","ledger_index":"validated"},"status":"error","validated":true}}
+
