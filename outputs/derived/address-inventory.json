@@ -1,0 +1,172 @@
+{
+ "formats": [
+  {
+   "count_inventoried": 1,
+   "encoding": "Base58Check, version 0x00, 20-byte AccountID",
+   "example": "rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh",
+   "id": "classic-address",
+   "length_chars_measured": [
+    27,
+    34
+   ],
+   "name": "Classic address",
+   "payload_bytes": 21,
+   "pinned_source": "src/libxrpl/protocol/AccountID.cpp:114-120 (toBase58), include/xrpl/protocol/tokens.h:42 (AccountID=0)",
+   "total_bytes": 25
+  },
+  {
+   "count_inventoried": 1,
+   "encoding": "Base58Check, prefix 0x05 0x44, 20-byte AccountID, flag byte, 4-byte little-endian tag, 4 reserved zero bytes",
+   "example": "XVPcpSm47b1CZkf5AkKM9a84dQHe3mS14LVdcxAFurk93tF",
+   "id": "x-address-mainnet",
+   "length_chars_measured": [
+    47
+   ],
+   "name": "X-address (mainnet)",
+   "payload_bytes": 31,
+   "pinned_source": "NOT in the pinned node code (no toXAddress in src/ or include/); ripple-address-codec encodeXAddress (prefix main [0x05, 0x44], test [0x04, 0x93])",
+   "total_bytes": 35
+  },
+  {
+   "count_inventoried": 1,
+   "encoding": "Base58Check, prefix 0x04 0x93, same layout as mainnet",
+   "example": "TVK3SYvMLZR6rEtLDZh3saYHaqFSeMfyuiuZdqF49Mhpsws",
+   "id": "x-address-testnet",
+   "length_chars_measured": [
+    47
+   ],
+   "name": "X-address (testnet)",
+   "payload_bytes": 31,
+   "pinned_source": "NOT in the pinned node code; ripple-address-codec",
+   "total_bytes": 35
+  },
+  {
+   "count_inventoried": 1,
+   "encoding": "RIPEMD-160(SHA-256(public key)), 20 bytes, hex or raw",
+   "example": "f0633263b2e588395fcf15d406297e864f91aa35 (PFTL genesis)",
+   "id": "account-id",
+   "length_chars_measured": [
+    40
+   ],
+   "name": "AccountID (160-bit)",
+   "payload_bytes": 20,
+   "pinned_source": "src/libxrpl/protocol/AccountID.cpp:168-176 (calcAccountID)",
+   "total_bytes": 20
+  },
+  {
+   "count_inventoried": 1,
+   "encoding": "Base58Check, version 0x21, 16-byte seed",
+   "example": "snoPBrXtMeMyMHUVTgbuqAfg1SUTb (public docs vector)",
+   "id": "family-seed",
+   "length_chars_measured": [
+    29
+   ],
+   "name": "Family seed",
+   "payload_bytes": 17,
+   "pinned_source": "src/libxrpl/protocol/Seed.cpp:97-106 (parseBase58<Seed>), include/xrpl/protocol/tokens.h:46 (FamilySeed=33)",
+   "total_bytes": 21
+  },
+  {
+   "count_inventoried": 1,
+   "encoding": "12 words from the 2048-word dictionary, 6 words per 64-bit half with 2-bit parity; seed bytes reversed first",
+   "example": "I IRE BOND BOW TRIO LAID SEAT GOAL HEN IBIS IBIS DARE",
+   "id": "rfc1751-seed-words",
+   "length_chars_measured": [
+    12
+   ],
+   "name": "RFC1751 seed words",
+   "payload_bytes": 16,
+   "pinned_source": "src/libxrpl/protocol/Seed.cpp:135-145 (seedAs1751), src/libxrpl/crypto/RFC1751.cpp:42, 463-504",
+   "total_bytes": 16
+  },
+  {
+   "count_inventoried": 1,
+   "encoding": "Base58Check, version 0x23, 33-byte public key",
+   "example": "aBQG8RQAzjs1eTKFEAQXr2gS4utcDiEC9wmi7pfUPTi27VCahwgw",
+   "id": "account-public-token",
+   "length_chars_measured": [
+    52
+   ],
+   "name": "Account public key token",
+   "payload_bytes": 34,
+   "pinned_source": "include/xrpl/protocol/tokens.h:43 (AccountPublic=35)",
+   "total_bytes": 38
+  },
+  {
+   "count_inventoried": 1,
+   "encoding": "Base58Check, version 0x22, 32-byte secret key",
+   "example": "NOT SHOWN (secret material is never recorded)",
+   "id": "account-secret-token",
+   "length_chars_measured": [
+    51
+   ],
+   "name": "Account secret key token",
+   "payload_bytes": 33,
+   "pinned_source": "include/xrpl/protocol/tokens.h:44 (AccountSecret=34)",
+   "total_bytes": 37
+  },
+  {
+   "count_inventoried": 1,
+   "encoding": "Base58Check, version 0x1C, 33-byte public key",
+   "example": "NOT SHOWN (validator key material is live; format only)",
+   "id": "node-public-token",
+   "length_chars_measured": [
+    52
+   ],
+   "name": "Node public key token",
+   "payload_bytes": 34,
+   "pinned_source": "include/xrpl/protocol/tokens.h:40 (NodePublic=28)",
+   "total_bytes": 38
+  }
+ ],
+ "key_formats": [
+  {
+   "count_inventoried": 1,
+   "encoding": "0xED prefix + 32-byte key (33 bytes)",
+   "example_prefix": "0xED",
+   "id": "ed25519-public",
+   "name": "Ed25519 public key",
+   "pinned_source": "src/libxrpl/protocol/PublicKey.cpp:224-236, src/libxrpl/protocol/SecretKey.cpp:352-356"
+  },
+  {
+   "count_inventoried": 1,
+   "encoding": "0x02/0x03 prefix + 32-byte x-coordinate (33 bytes)",
+   "example_prefix": "0x02/0x03",
+   "id": "secp256k1-public",
+   "name": "secp256k1 compressed public key",
+   "pinned_source": "src/libxrpl/protocol/PublicKey.cpp:224-236, src/libxrpl/protocol/SecretKey.cpp:334-350"
+  }
+ ],
+ "seed_formats": [
+  {
+   "count_inventoried": 1,
+   "entropy_bits": 128,
+   "id": "family-seed",
+   "name": "Family seed (Base58Check 's...')"
+  },
+  {
+   "count_inventoried": 1,
+   "entropy_bits": 128,
+   "id": "rfc1751-words",
+   "name": "RFC1751 12-word seed"
+  },
+  {
+   "count_inventoried": 1,
+   "entropy_bits": "passphrase-dependent (SHA-512-Half[:16])",
+   "id": "passphrase-seed",
+   "name": "Passphrase-derived seed"
+  },
+  {
+   "count_inventoried": 1,
+   "entropy_bits": 128,
+   "id": "hex-seed",
+   "name": "32-hex-character seed",
+   "pinned_source": "src/libxrpl/protocol/Seed.cpp:108-116 (parseGenericSeed accepts a 32-hex seed)"
+  }
+ ],
+ "totals": {
+  "address_formats": 9,
+  "key_formats": 2,
+  "seed_formats": 4
+ }
+}
