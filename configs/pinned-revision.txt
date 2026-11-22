@@ -1,0 +1,7 @@
+postfiatd pinned revision: 0085a1ff885d6a446369cf73a4430f75af22be55
+commit date: 2026-10-10 18:53:26 +0200
+commit message: Merge pull request #50 from postfiatorg/hotfix/upstream-hardening-1.0.9
+repository: https://github.com/postfiatorg/postfiatd
+build version: 1.0.9
+verified: local git checkout (git rev-parse HEAD + git log); the unauthenticated
+GitHub API was rate-limited for the shared egress IP during verification.
