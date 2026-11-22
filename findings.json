@@ -1,0 +1,346 @@
+{
+ "counts": {
+  "by_severity": {
+   "HIGH": 3,
+   "INFO": 1,
+   "LOW": 3,
+   "MEDIUM": 5
+  },
+  "by_status": {
+   "MEASURED": 8,
+   "SPECIFIED": 4
+  },
+  "claims_by_status": {
+   "SPECIFIED": 8,
+   "UNTESTABLE": 2,
+   "UNVERIFIED": 2,
+   "VERIFIED": 20
+  },
+  "claims_total": 32,
+  "crosscheck": {
+   "failed": 0,
+   "implementations": [
+    "reference (this pack, pure Python stdlib)",
+    "xrpl-py 5.2.0",
+    "ripple-keypairs + ripple-address-codec (npm)"
+   ],
+   "passed": 24,
+   "total": 24,
+   "wall_seconds": 10.36
+  },
+  "drill_cases": {
+   "failed": 0,
+   "passed": 25,
+   "total": 25,
+   "wall_seconds": 8.84
+  },
+  "findings_total": 12,
+  "formats_inventoried": 9,
+  "gaps_total": 7,
+  "key_formats": 2,
+  "risks_by_severity": {
+   "HIGH": 3,
+   "INFO": 1,
+   "LOW": 4,
+   "MEDIUM": 6
+  },
+  "risks_total": 14,
+  "seed_formats": 4,
+  "wallets_tested": 4
+ },
+ "findings": [
+  {
+   "evidence": "Drill D-08: for each of 3 fresh LAB seeds, the Ed25519 and secp256k1 derivations of the SAME seed produce different classic addresses (e.g. seed 1: rGmvXCFFBGV6eByMPB6eY2phpzaEgbNm6M vs raiytF46EqpGpScaX6b2DELu7oQJvk3kHh). The docs seed does the same (rGWrZyQqhTp9Xu7G5Pkayo7bXjH4k4QYpf vs rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh). A wallet that defaults to the other curve silently lands the user on a different, empty account.",
+   "id": "F-01",
+   "remediation": "Migration tooling must record and display the key type alongside the seed; import flows must derive BOTH curves and show both addresses before the user picks one.",
+   "severity": "HIGH",
+   "status": "MEASURED",
+   "title": "Same seed, two accounts: curve choice changes the address"
+  },
+  {
+   "evidence": "grep over src/ and include/ of postfiatd 0085a1ff for toXAddress/XAddress/xAddress returns 0 matches. Live: account_info for the X-address XVPcpSm47b1CZkf5AkKM9a84dQHe3mS14LVdcxAFurk93tF returns actMalformed (AccountInfo.cpp:74-83 parses only parseBase58<AccountID>). Any migration or payment tooling that stores X-addresses as account identifiers breaks at the RPC layer.",
+   "id": "F-02",
+   "remediation": "Never persist an X-address where an account is expected; convert to classic + tag at the client boundary and keep the tag in its own field.",
+   "severity": "HIGH",
+   "status": "MEASURED",
+   "title": "X-addresses are client-side only; the node rejects them"
+  },
+  {
+   "evidence": "The classic address is Base58Check(version 0x00, 20-byte AccountID) with no network byte (tokens.h:42; AccountID.cpp:114-120). The same classic address is valid on testnet and mainnet: the XRPL genesis address r9cZA1mLK5R5Am25ArfXFmqgNwjZgnfk59 parses on the PFTL testnet and simply does not exist there (actNotFound). Only the X-address prefix distinguishes networks (main 0x05 0x44 vs test 0x04 0x93).",
+   "id": "F-03",
+   "remediation": "Treat a classic address as network-agnostic: every payment flow must carry the network (2025 testnet vs mainnet) out-of-band, and confirm it before signing.",
+   "severity": "HIGH",
+   "status": "SPECIFIED",
+   "title": "Classic addresses carry no network identity"
+  },
+  {
+   "evidence": "SecretKey.cpp sign() hashes the message with SHA-512-Half before ECDSA for secp256k1, while Ed25519 signs the message directly (SecretKey.cpp:258-307). Measured in the cross-check: verifying an xrpl-py offline signature with the bare signing hash as the message returns False for BOTH curves; verifying with the serialized signing bytes (STX\\0 || tx, SigningPubKey included) returns True for both. A naive implementer that signs the signing hash itself produces a signature the network rejects.",
+   "id": "F-04",
+   "remediation": "Sign the serialized signing bytes, never the bare hash; keep the reference implementation's sign/verify pair as the worked example.",
+   "severity": "MEDIUM",
+   "status": "MEASURED",
+   "title": "secp256k1 signing digests the message twice; the bare signing hash fails"
+  },
+  {
+   "evidence": "grep over src/, include/, docs/ of postfiatd 0085a1ff for mnemonic/bip39/bip-39 returns 0 relevant matches. Mnemonic import is wallet-side only. Wallet-side mnemonic schemes (BIP44, coin type 144 for XRP) derive keys by a different path than the family-seed Generator, so a mnemonic wallet and a family-seed wallet holding the 'same' recovery phrase produce different accounts. Hardware-wallet behaviour could not be tested in this lab (see gap G-02).",
+   "id": "F-05",
+   "remediation": "Document the derivation path next to every mnemonic; migration must re-derive from the mnemonic with the wallet's own path, never by converting a mnemonic into a family seed.",
+   "severity": "MEDIUM",
+   "status": "SPECIFIED",
+   "title": "No BIP39/mnemonic support in the pinned node"
+  },
+  {
+   "evidence": "GET https://postfiat.org/docs/ returns 404; https://postfiat.org/ contains no wallet or address documentation (0 matches); the whitepaper mentions 'addresses' twice, both in passing, with no format specification. Operators have only the pinned code and the client libraries as documentation.",
+   "id": "F-06",
+   "remediation": "Publish the address-format inventory (docs/address-formats.md in this pack) as project documentation before mainnet.",
+   "severity": "MEDIUM",
+   "status": "MEASURED",
+   "title": "No wallet or address documentation on the project site"
+  },
+  {
+   "evidence": "POST wallet_propose to the public RPC proxy returns HTTP 403 Forbidden (outputs/wallet_propose.json). Operators and migration tooling must generate seeds and keypairs with client libraries, not the node.",
+   "id": "F-07",
+   "remediation": "Use the reference implementation or xrpl-py / ripple-keypairs for wallet generation; never depend on a public RPC for it.",
+   "severity": "MEDIUM",
+   "status": "MEASURED",
+   "title": "wallet_propose is admin-gated; the public proxy cannot propose wallets"
+  },
+  {
+   "evidence": "generateKeyPair(secp256k1, seed) runs Generator(seed)(0) and the Generator accepts any ordinal (SecretKey.cpp:180-223, 330-372); generateKeyPair(ed25519, seed) derives a single keypair and ignores ordinals. Drill D-07 measured ordinal 0 vs 1 giving different secp256k1 addresses for the same seed. A migration that assumes 'the next account' exists for an Ed25519 seed silently drops derived accounts.",
+   "id": "F-08",
+   "remediation": "Migration runbooks must enumerate secp256k1 ordinals explicitly and treat Ed25519 seeds as single-account.",
+   "severity": "MEDIUM",
+   "status": "SPECIFIED",
+   "title": "Ed25519 has no ordinal family; secp256k1 has an unbounded one"
+  },
+  {
+   "evidence": "The all-zero AccountID encodes to rrrrrrrrrrrrrrrrrrrrrhoLvTp (21 leading 'r's, 27 chars), verified against xrpl-py and the reference implementation. The commonly quoted rrrrrrrrrrrrrrrrrrrrBZbvji decodes to AccountID 0...01 (AccountID.cpp noAccount()), not zero. The live node returns actNotFound for both. The confusion is harmless here but shows how easy format mistakes are.",
+   "id": "F-09",
+   "remediation": "Derive special addresses from the codec, never from memory; the drill records both values.",
+   "severity": "LOW",
+   "status": "MEASURED",
+   "title": "The all-zero account address is widely misidentified"
+  },
+  {
+   "evidence": "The destination tag is a 32-bit value (0..2^32-1) carried only in the X-address flag/tag bytes (ripple-address-codec encodeXAddress); a classic address carries no tag. A payment that needs a tag but is addressed classically loses the tag silently at the client layer \u2014 the ledger cannot recover it.",
+   "id": "F-10",
+   "remediation": "Keep the tag in its own field end-to-end; if an address arrives without one, ask, do not assume tag 0.",
+   "severity": "LOW",
+   "status": "SPECIFIED",
+   "title": "Destination tags exist only in X-addresses"
+  },
+  {
+   "evidence": "The validated ledger at probe time (seq 8281677) contained 0 transactions, so the on-ledger address-format census is vacuous for this window (drill D-13). This is a limitation of the observation window, not a format flaw; the ledger carries only classic addresses by construction (X-addresses never appear on-ledger).",
+   "id": "F-11",
+   "remediation": "Re-run the census over a busier window before mainnet; the drill script already supports it.",
+   "severity": "LOW",
+   "status": "MEASURED",
+   "title": "No on-ledger address sample in the probe window"
+  },
+  {
+   "evidence": "Cross-check 24/24 PASS: the reference implementation (pure Python stdlib), xrpl-py 5.2.0, and ripple-keypairs + ripple-address-codec agree exactly on key derivation, classic/X-address encoding, and offline transaction signatures for the public docs seed and 3 fresh LAB seeds across both curves. Drill 25/25 PASS. The formats are interoperable as implemented.",
+   "id": "F-12",
+   "remediation": "None \u2014 keep the three-way cross-check as the regression test for any future format change.",
+   "severity": "INFO",
+   "status": "MEASURED",
+   "title": "Three independent implementations agree byte-for-byte"
+  }
+ ],
+ "gaps": [
+  {
+   "detail": "Xumm, Crossmark, GemWallet, and other wallet apps could not be installed and driven in this lab. Import behaviour is verified only for three libraries (reference, xrpl-py, ripple-keypairs).",
+   "id": "G-01",
+   "title": "Real wallet apps not tested",
+   "unblocks": "A device lab or emulator run importing a LAB family seed into each app."
+  },
+  {
+   "detail": "Whether a Ledger-style BIP44 (44'/144') derivation of a mnemonic matches the family-seed derivation could not be tested: it needs a hardware wallet and real key material, which the safety boundary forbids.",
+   "id": "G-02",
+   "title": "Hardware-wallet / BIP44 derivation not tested",
+   "unblocks": "A hardware-wallet test with LAB-only mnemonics in a lab harness."
+  },
+  {
+   "detail": "The validated ledger at probe time held 0 transactions, so the on-ledger address census is vacuous. The claim that only classic addresses appear on-ledger rests on the code (X-addresses are client-side), not on a transaction sample.",
+   "id": "G-03",
+   "title": "No on-ledger transaction sample in the probe window",
+   "unblocks": "Re-run the census over a busier ledger window."
+  },
+  {
+   "detail": "There is no mainnet and no established 1:1 testnet-to-mainnet conversion, so mainnet address validity and cross-network behaviour cannot be measured, only reasoned about from the format (no network byte).",
+   "id": "G-04",
+   "title": "No mainnet to test address validity against",
+   "unblocks": "A mainnet launch or a published conversion specification."
+  },
+  {
+   "detail": "The ripple-address-codec repository's own test-vector files returned 404 at the guessed paths (the repo moved into the xrpl.js monorepo). X-address vectors are instead verified by three-way agreement of independent implementations.",
+   "id": "G-05",
+   "title": "Codec test-suite vectors not fetched from upstream",
+   "unblocks": "Locate the vectors in the xrpl.js monorepo and add them as a fourth check."
+  },
+  {
+   "detail": "The unauthenticated GitHub API returned 'rate limit exceeded' for the shared egress IP while verifying the pinned commit, so the pin was verified from a local git checkout (rev-parse HEAD plus log) instead of the API.",
+   "id": "G-06",
+   "title": "GitHub API rate-limited during pin verification",
+   "unblocks": "An authenticated API call, or a fresh clone at the pinned commit."
+  },
+  {
+   "detail": "postfiat.org/docs/ returns 404 and the whitepaper does not specify address formats, so there is no project documentation to cross-check the code against.",
+   "id": "G-07",
+   "title": "No project documentation for address formats",
+   "unblocks": "Project publication of an address-format specification."
+  }
+ ],
+ "generated_at_utc": "2026-11-22T22:30:35Z",
+ "risks": [
+  {
+   "detail": "Same seed, different curve = different address. A user importing a seed into a wallet that defaults to the other curve sees an empty account and may conclude the funds are lost, or send funds to the wrong-curve address. Recovery needs the seed + the other curve's derivation, which a panicked user may not know exists.",
+   "finding": "F-01",
+   "id": "R-01",
+   "likelihood": "LIKELY",
+   "severity": "HIGH",
+   "title": "Wrong-curve import lands funds on a different, empty account"
+  },
+  {
+   "detail": "The node has no X-address code and answers actMalformed. Any tooling that persists X-addresses as account IDs, or passes them to account_info / payment construction, breaks. The break is loud (an error) rather than silent, which limits the damage.",
+   "finding": "F-02",
+   "id": "R-02",
+   "likelihood": "LIKELY",
+   "severity": "HIGH",
+   "title": "X-address sent to the node or stored as an account identifier"
+  },
+  {
+   "detail": "Classic addresses carry no network byte, so an address valid on the testnet is equally valid on mainnet. A payment built for one network and signed for the other is a user error the format cannot catch. X-addresses are the only format that distinguishes networks, and the node does not accept them.",
+   "finding": "F-03",
+   "id": "R-03",
+   "likelihood": "POSSIBLE",
+   "severity": "HIGH",
+   "title": "Testnet/mainnet address reuse: same classic address, two ledgers"
+  },
+  {
+   "detail": "Tags live only in X-addresses. A flow that drops the tag (or assumes tag 0) when converting to a classic address sends an untagged payment to a tagged destination; the funds arrive but cannot be attributed by the recipient.",
+   "finding": "F-10",
+   "id": "R-04",
+   "likelihood": "POSSIBLE",
+   "severity": "MEDIUM",
+   "title": "Destination tag lost when a payment is addressed classically"
+  },
+  {
+   "detail": "The node has no mnemonic support; mnemonic wallets derive by their own path. Importing a mnemonic into a family-seed wallet (or vice versa) yields a different address, with the same empty-account confusion as R-01.",
+   "finding": "F-05",
+   "id": "R-05",
+   "likelihood": "POSSIBLE",
+   "severity": "MEDIUM",
+   "title": "Mnemonic / BIP44 migration produces a different account"
+  },
+  {
+   "detail": "secp256k1 seeds can hold many accounts (ordinals); Ed25519 seeds hold one. A migration that enumerates ordinals for an Ed25519 seed finds nothing, and one that assumes a single account for a secp256k1 seed can strand ordinal-1+ accounts.",
+   "finding": "F-08",
+   "id": "R-06",
+   "likelihood": "POSSIBLE",
+   "severity": "MEDIUM",
+   "title": "Ordinal-family accounts dropped in an Ed25519 migration"
+  },
+  {
+   "detail": "secp256k1 signs SHA-512-Half(message); Ed25519 signs the message. Signing the bare signing hash fails verification for both curves (measured). The failure is loud (rejected signature), so the damage is a broken integration, not lost funds.",
+   "finding": "F-04",
+   "id": "R-07",
+   "likelihood": "UNLIKELY",
+   "severity": "MEDIUM",
+   "title": "Signing-digest implementation error produces rejected signatures"
+  },
+  {
+   "detail": "One 128-bit seed has four serializations (family seed, 12 words, 32 hex chars, passphrase). parseGenericSeed accepts all of them, and a passphrase that happens to look like a seed is treated as one. Users can mistake one form for another; the 12-word form has parity protection, the others do not.",
+   "finding": "F-05",
+   "id": "R-08",
+   "likelihood": "POSSIBLE",
+   "severity": "MEDIUM",
+   "title": "Seed-format confusion (family seed vs RFC1751 words vs hex)"
+  },
+  {
+   "detail": "The 32-bit checksum catches a random corruption with probability 1 - 2^-32. Across all 1,938 single-character corruptions of a 34-character classic address, ~4.5e-7 are expected to pass. Negligible per address, non-zero across a large user base; copy-paste and QR codes are the practical mitigation.",
+   "finding": "F-12",
+   "id": "R-09",
+   "likelihood": "UNLIKELY",
+   "severity": "LOW",
+   "title": "Single-character address corruption passes the checksum"
+  },
+  {
+   "detail": "160-bit AccountID space: collision probability is ~3.4e-31 at 1e9 accounts and ~0.39 only at 2^80 accounts. Not a realistic risk; the confusion risks are encoding-level, not collisions.",
+   "finding": "F-12",
+   "id": "R-10",
+   "likelihood": "NEGLIGIBLE",
+   "severity": "LOW",
+   "title": "AccountID hash collision"
+  },
+  {
+   "detail": "The zero address and the account-1 address are easily confused in documentation and code; both return actNotFound on the testnet. Neither holds funds, so the impact is limited to misleading documentation and tests.",
+   "finding": "F-09",
+   "id": "R-11",
+   "likelihood": "POSSIBLE",
+   "severity": "LOW",
+   "title": "Special-address confusion (zero vs account-one)"
+  },
+  {
+   "detail": "With /docs/ returning 404 and the whitepaper silent on formats, operators learn the formats from code or from this pack. Undocumented formats invite the implementation errors in R-01, R-02, R-05, and R-07.",
+   "finding": "F-06",
+   "id": "R-12",
+   "likelihood": "LIKELY",
+   "severity": "MEDIUM",
+   "title": "No operator documentation for address formats"
+  },
+  {
+   "detail": "Operators who expect the node to propose wallets get HTTP 403. Low impact (client libraries exist), but it is a trap for migration tooling written against a local node and then pointed at the public proxy.",
+   "finding": "F-07",
+   "id": "R-13",
+   "likelihood": "LIKELY",
+   "severity": "LOW",
+   "title": "wallet_propose unavailable through the public proxy"
+  },
+  {
+   "detail": "All 25 validator master keys map to valid classic addresses, but none holds an account on the testnet (actNotFound). Tooling must not assume an address implies an account; conversely, funds sent to such an address would create an account controlled by the validator's master key.",
+   "finding": "F-12",
+   "id": "R-14",
+   "likelihood": "LIKELY",
+   "severity": "INFO",
+   "title": "Validator master-key addresses are identities, not accounts"
+  }
+ ],
+ "verdict": "SOUND BUT FRAGILE AT THE EDGES \u2014 the address formats are correct and interoperable across three independent implementations, and the node rejects malformed input; every material risk sits at a boundary: curve choice, network identity, and client-side-only X-addresses.",
+ "wallets": [
+  {
+   "id": "reference",
+   "name": "Reference implementation (this pack)",
+   "result": "PASS",
+   "role": "Codec, derivation, signing, verification; 25/25 drill cases",
+   "version": "src/address_codec.py (pure Python stdlib)"
+  },
+  {
+   "id": "xrpl-py",
+   "name": "xrpl-py",
+   "result": "PASS (24/24 cross-checks)",
+   "role": "Derivation, X-address codec, offline transaction signing",
+   "version": "5.2.0 (pip)"
+  },
+  {
+   "id": "ripple-keypairs",
+   "name": "ripple-keypairs + ripple-address-codec",
+   "result": "PASS (24/24 cross-checks)",
+   "role": "Derivation, X-address codec, offline signing",
+   "version": "npm (latest at 2026-11-22)"
+  },
+  {
+   "id": "postfiatd-rpc",
+   "name": "postfiatd public RPC (testnet)",
+   "result": "PASS (9 account_info probes)",
+   "role": "account_info parsing: accepts classic addresses and account-public tokens (via accountFromStringStrict), rejects X-addresses and malformed input with actMalformed, returns actNotFound for well-formed but unfunded addresses",
+   "version": "1.0.9, network_id 2025"
+  },
+  {
+   "id": "wallet-apps",
+   "name": "Real wallet apps (Xumm, Crossmark, GemWallet, Ledger)",
+   "result": "NOT TESTED (gap G-01/G-02)",
+   "role": "End-user import behaviour",
+   "version": "n/a"
+  }
+ ]
+}

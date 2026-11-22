@@ -1,0 +1,81 @@
+{
+ "counts": {
+  "by_severity": {
+   "HIGH": 3,
+   "INFO": 1,
+   "LOW": 3,
+   "MEDIUM": 5
+  },
+  "by_status": {
+   "MEASURED": 8,
+   "SPECIFIED": 4
+  },
+  "claims_by_status": {
+   "SPECIFIED": 8,
+   "UNTESTABLE": 2,
+   "UNVERIFIED": 2,
+   "VERIFIED": 20
+  },
+  "claims_total": 32,
+  "findings_total": 12,
+  "formats_inventoried": 9,
+  "gaps_total": 7,
+  "key_formats": 2,
+  "risks_total": 14,
+  "seed_formats": 4,
+  "wallets_tested": 4
+ },
+ "crosscheck": {
+  "failed": 0,
+  "implementations": [
+   "reference (this pack, pure Python stdlib)",
+   "xrpl-py 5.2.0",
+   "ripple-keypairs + ripple-address-codec (npm)"
+  ],
+  "passed": 24,
+  "total": 24,
+  "wall_seconds": 10.36
+ },
+ "drill": {
+  "failed": 0,
+  "passed": 25,
+  "total": 25,
+  "wall_seconds": 8.84
+ },
+ "environment": {
+  "network": "public endpoints only; no credentials, sessions, accounts, or signing of live material",
+  "python": "3.12.3",
+  "tools": "curl, git, python3 (stdlib only for the reference implementation), node 24.22.1, xrpl-py 5.2.0"
+ },
+ "generated_at_utc": "2026-11-22T22:30:35Z",
+ "live_endpoints": [
+  "https://rpc.testnet.postfiat.org/ (postfiatd 1.0.9, network_id 2025)",
+  "https://postfiat.org/testnet_vl.json",
+  "https://explorer.testnet.postfiat.org/api/v1/ (health HTTP 500 at probe time)",
+  "https://postfiat.org/ and https://postfiat.org/whitepaper/ and https://postfiat.org/docs/ (404)"
+ ],
+ "live_measurements": {
+  "build_version": "1.0.9",
+  "explorer_health": "{\"message\":\"rippled unreachable\"}",
+  "genesis_account": "r4vhrMChCsaoFsBoCkRTRGUuc1njfr7bmA",
+  "genesis_balance_drops": "96999999999999880",
+  "network_id": 2025,
+  "peers": 21,
+  "unl_size": 25,
+  "validated_ledger_seq": 8281677,
+  "validation_quorum": 17,
+  "validators": 25
+ },
+ "notes": [
+  "Assessment + lab drills only: no live key material was used, no transactions sent, no flood traffic, no mainnet touched, nothing signed on the live network.",
+  "All drill keys are freshly generated LAB keys, wiped after the run; only public keys, fingerprints, addresses, and timings are recorded. Lab seeds are never written to disk.",
+  "Live values were re-probed for this pack; no numbers were copied from earlier packs.",
+  "The GitHub API was rate-limited during pin verification; the pin was verified from a local git checkout (rev-parse HEAD + log)."
+ ],
+ "pack": "PFTL address-format and wallet migration evidence pack",
+ "probe_window_utc": "2026-11-22T22:23:51Z to 2026-11-22T22:24:16Z",
+ "repo_pins": {
+  "postfiatd": "0085a1ff885d6a446369cf73a4430f75af22be55 (2026-10-10, PR #50 merge, v1.0.9)"
+ },
+ "verdict": "SOUND BUT FRAGILE AT THE EDGES \u2014 the address formats are correct and interoperable across three independent implementations, and the node rejects malformed input; every material risk sits at a boundary: curve choice, network identity, and client-side-only X-addresses."
+}
